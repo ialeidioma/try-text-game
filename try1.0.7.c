@@ -1,7 +1,5 @@
 /*known issues:
-player can heal undefinatly (put a maxhp and if(hp+heal>maxhp) can't heal)
-player can flee undefinatly (not a big problem since enemy can attack but it may need to be capped or adding a chance to fail to flee and getting hit)
-enemy attack not completly random (needs to be checked)
+enemy attack random (unkown if it varies between how long it takes to enter the number)
 spelling needs to be checked (most times I write this program I'm too tired to do other stuff)
 unknow update issues (new implemented code needs to be checked)
 
@@ -17,17 +15,19 @@ That's all for now*/
 #include <stdio.h>
 #include <math.h>
 #include <ctype.h>
+#include <time.h>
+#include <stdlib.h>
 #define SIZE 99
 
 int main(void)
 {
-    int switch_con,arena_con,e_atck_con,e_count,arena_exit,shop_con;
-	double p,e,xp,lv,dmg,edmg,heal,xpo,xp_multi;
+    int switch_con,arena_con,e_count,arena_exit,shop_con;
+	double hp,e,xp,lv,dmg,edmg,heal,xpo,xp_multi,maxhp;
     double i,j;
     
+    srand(time(NULL));
     i=1.;
-    p=50.;
-    e_atck_con=0;
+    hp=50.;
     xp=0.;
     xpo=6.;
     lv=0.;
@@ -35,6 +35,7 @@ int main(void)
     e_count=0;
     xp_multi=1.5;
     char buffer[SIZE];
+    maxhp=60.;
     
 	/*game starts here*/
     
@@ -94,6 +95,7 @@ int main(void)
   	
 	  	
 			/*armours*/
+			
 			case 1:
 				printf("armour types\n");
 				goto SHOP;
@@ -120,7 +122,7 @@ int main(void)
 			
 			default:
 				printf("you didn't enter one of the available options\n");
-				printf("go back to the shop menù!\n");
+				printf("go back to the shop menÃ¹!\n");
 				goto SHOP;
 		}
 	
@@ -132,7 +134,7 @@ int main(void)
 	
 		/*combat system*/
     
-		while(p > 0){
+		while(hp > 0){
 		e=20*i;
 		dmg= 4.*j;
     	heal= 6.*j;
@@ -140,7 +142,6 @@ int main(void)
         printf("you encountered an enemy!\n");
         do {
         	printf("decide to attack (1) or flee (0) or heal(any other number):\n");
-        	e_atck_con++;
         	scanf("%d",&arena_con);
         
 			/*check if number*/
@@ -163,13 +164,7 @@ int main(void)
         	 
 			if(arena_con==1){
                 e -=dmg;
-                e_atck_con++;
             printf("you attacked the enemy, causing %2.1f dmg (remaing enemy hp=%2.1f)\n",dmg,e);
-            if(e_atck_con%3==0){
-                p -= edmg;
-                printf("the enemy attacked you!(remaining player hp:%2.1f)\n",p);
-                e_atck_con +=3;
-        	}
         	if(e > 0)
 			    printf("the enemy is still alive!\n");
             
@@ -178,36 +173,47 @@ int main(void)
 			/*flee option*/
             
 			else if (arena_con==0){
-                e_atck_con *=3;
-                printf("coward! You can't run forever (well actually you can since my coding skills are pretty low but damn you if you try that)\n");
-                if(e_atck_con%3==0){
-                p -= edmg;
-                printf("the enemy attacked you!(remaining player hp:%2.1f)\n",p);
-                e_atck_con++;
-            }
+                printf("coward! You can't run forever\n");
+                
+                /*enemy attack while attempting to flee*/
+                
+                if(rand()%3==0 || rand()%2==0){
+            	hp -= 2*edmg;
+                printf("the enemy attacked you while attemping to flee!(remaining player hp:%2.1f)\n",hp);
+			}
+				else
+					printf("the enemy followed you!\n");
             	printf("the enemy is still alive!\n");
             }
             
 			/*heal option*/
             //will probably add more options in the future
-            
+			
 			else{
-            	e_atck_con *= 5;
-            	p += heal;
-            	printf("you healed yourself of %2.1fhp, keep up the fight,(hp=%2.1f)\n",heal,p);
-            if(e_atck_con%7==0){
-                p -= edmg;
-                printf("the enemy attacked you!(remaining player hp:%2.1f)\n",p);
-                e_atck_con+=11;
+            	hp += heal;
+            	if(hp<=maxhp)
+					printf("you healed yourself of %2.1fhp, keep up the fight,(hp=%2.1f)\n",heal,hp);
+            	else{
+ 					hp -= heal;           		
+            		printf("sorry can't heal right now!(hp=%2.1f maxhp=%2.1f)\n",hp,maxhp);
+				}
+				printf("the enemy is still alive!\n");
             }
-            	printf("the enemy is still alive!\n");
-            }
-		}while(e >0 && p>0);
+            
+            /*enemy attack*/
+            
+            if(arena_con != 0){
+			
+			if( rand()%3==0 || rand()%7==0 || rand()%11==0){
+            	hp -= edmg;
+                printf("the enemy attacked you!(remaining player hp:%2.1f)\n",hp);
+			}
+		}
+		}while(e >0 && hp>0);
 		
 		/*check if enemy is dead*/
 		
 		if(e<=0){
-            	e_atck_con++;
             	e_count++;
 			    printf("you killed an enemy!GJ\n");
             	printf("you gained %2.1f xp!(current xp=%2.1f)\n",3*i,xp += 3*i);
@@ -218,6 +224,7 @@ int main(void)
             		lv +=1;
             		i +=0.5;
             		j +=0.2;
+            		maxhp += 5*j;
             		xpo *= xp_multi;
 					printf("you gained a level!\n");
             		printf("current xp=%2.1f next level xp=%2.1f\n",xp,xpo*xp_multi);
@@ -258,7 +265,7 @@ int main(void)
 			
 			/*check if player is still alive*/
 	
-	if(p<=0){
+	if(hp<=0){
         printf("too bad you died! Thanks for playing!\n");
         break;
     }
