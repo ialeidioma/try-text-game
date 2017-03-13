@@ -3,7 +3,7 @@
 			printf("you enter the bar\n");
     		BAR:
     		printf("where do you want to head ?\n");
-    		printf(" 1:adventurers' table\n 2:counter\n 3:girls' table\n 4:notice-board\n 5:empty table\n 6:exit bar\n");
+    		printf(" 1:adventurers' table\n 2:counter\n 3:girls' table\n 4:notice-board\n 5:receptionist 6:empty table\n 7:exit bar\n");
 			printf("enter either 1,2,3,4,5 or 6\n");
 			scanf("%d",&bar_con);
 			    		
@@ -90,26 +90,82 @@
 			
 			case 4:
 				printf("you head toward the notice-board...\n");
+				if(board_con==0){
+				board_con=1;
+				quest_con=1;
 				if(rand()%3==0){
 					printf("there's a quest to kill 10 enemies in the arena\n");
-					printf("the reward is 200 gold pieces");
-					quest_con=1;
-					reward=200;
+					printf("the reward is 250 gold pieces\n");
+					quest_conditions=10;
+					reward=250;
 					}
 				else if(rand()%8==0){
-					printf("there's a quest to kill 20 enemies")
+					printf("there's a quest to kill 20 enemies in the arena\n");
+					printf("the reward is 500 gold pieces\n");
+					quest_conditions=20;
+					reward=500;
+				}
+				else if(rand()%11==0){
+					printf("there's a quest to kill 30 enemies in the arena\n");
+					printf("the reward is 1000 gold pieces\n");
+					quest_conditions=30;
+					reward=1000;					
+				}
+				else if(rand()%16==0){
+					printf("there's a quest to start a brawl in the bar\n");
+					printf("the reward is 1000 gold pieces\n");
+					quest_conditions=1;
+					reward=1000;					
+				}
+				else{
+					board_con=0;
+					printf("no quests available right now...bad luck i guess\n");
+				}
+				printf("do you want to accept this quest ?\n");
+				gets(buffer);
+				
+				if(buffer[0]=='y' || buffer[0]=='Y'){
+					printf("you accepted the quest,when you complete it go to the receptionist...if you complete it :P\n");
+					goto BAR;
+				}
+				else{
+					printf("you didn't accept the quest...\n");
+					quest_con=0;
+					goto BAR;
+				}
+				}
+				else{
+					printf("you already checked the notice-board for this evening\n");
+					printf("there are many other things to do!\n");
+					goto BAR;
+				}
+				
+			/*receptionist*/
+			case 5:
+				printf("a nice looking girl sits behind a counter\n");
+				if(quest_con!=0 && quest_conditions==e_count){
+					gold += reward;
+					quest_con=0;
+					printf("she greets you\n");
+					printf("here's your reward for the quest!(current gold:%d)\n",gold);
+					goto BAR;
+				}
+				else{
+					printf("she glances at you...\n");
+					printf("please first accept a quest from the notice-board and complete it!\n");
+					goto BAR;
 				}
 			
 			/*empty table*/
 			
-			case 5:
+			case 6:
 				printf("not implemented\n");
 				goto BAR;
 			
 			/*exit bar*/
 			
-			case 6:
-				printf("why you entered in the first place ? lol\n");
+			case 7:
+				printf("you leave the bar\n");
 				break;
 			
 			/*player didn't enter one of the previous cases*/

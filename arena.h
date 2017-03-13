@@ -1,6 +1,6 @@
 		/*area*/
 		printf("prepare to fight!\n");
-	
+		e_count=0;
 		/*combat system*/
     
 		while(hp > 0){
