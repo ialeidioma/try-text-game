@@ -59,7 +59,7 @@
 				else if(shop_con==4)
 					printf("the merc suit offers moderate protection, in addition it boosts the wearer offense abilities, it costs 1500 gold pieces\n");
 				else{
-					printf("since you want to do smartass...you go back to the shop!");
+					printf("since you want to do smartass...you go back to the shop!\n");
 					goto SHOP;
 				}
 				
@@ -178,7 +178,7 @@
 				else if(shop_con==4)
 					printf("the greatsword offers high attack, it has a lower attack speed compared to other weapons, it costs 1500 gold pieces\n");
 				else{
-					printf("since you want to do smartass...you go back to the shop!");
+					printf("since you want to do smartass...you go back to the shop!\n");
 					goto SHOP;
 				}
 				
@@ -297,7 +297,7 @@
 				else if(shop_con==4)
 					printf("the ciel's banhammer offers high chance of obliterating an enemy, it's a pretty rare item so it costs 1100 gold pieces\n");
 				else{
-					printf("since you want to do smartass...you go back to the shop!");
+					printf("since you want to do smartass...you go back to the shop!\n");
 					goto SHOP;
 				}
 				

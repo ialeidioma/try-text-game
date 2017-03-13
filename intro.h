@@ -47,11 +47,12 @@ printf("how shall you be called ?\n");
 /*player name*/
 
 scanf("%[^\n]",player_name);
-sleep(2);
+
 if(strstr(pch, "nigga") || strstr(pch, "shit") || strstr(pch, "fuck") || strstr(pch, "dick")) {
+	sleep(1);
 	printf("rude name lol!\n");
 }
-sleep(2);
+sleep(1);
 printf("very well %s\n",player_name);
 sleep(2);
 printf("i hope to hear great deeds about you\n");
@@ -74,7 +75,7 @@ if (fgets(buffer, sizeof buffer, stdin))
 		}
   	}
 sleep(2);
-printf("you  say to have %d years\n",player_age);
+printf("you say to have %d years\n",player_age);
 	sleep(2);
 if(player_age>0 && player_age<14)
 	printf("you are young!kek\n");

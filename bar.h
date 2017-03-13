@@ -1,4 +1,5 @@
     		/*bar*/
+    		if(day_con==0){
 			printf("you enter the bar\n");
     		BAR:
     		printf("where do you want to head ?\n");
@@ -28,7 +29,7 @@
 			/*adventurers' table*/
 			
 			case 1:
-				printf("not implemented\n");
+				printf("not implemented need guild system before\n");
 				goto BAR;
 			
 			/*counter*/
@@ -82,14 +83,22 @@
 			/*girls'table*/
 			
 			case 3:
-				printf("not implemented\n");
+				printf("not implemented need guild system\n");
 				goto BAR;
 			
 			/*notice-board*/
 			
 			case 4:
-				printf("not implemented\n");
-				goto BAR;
+				printf("you head toward the notice-board...\n");
+				if(rand()%3==0){
+					printf("there's a quest to kill 10 enemies in the arena\n");
+					printf("the reward is 200 gold pieces");
+					quest_con=1;
+					reward=200;
+					}
+				else if(rand()%8==0){
+					printf("there's a quest to kill 20 enemies")
+				}
 			
 			/*empty table*/
 			
@@ -109,3 +118,6 @@
         	printf("don't be a pain in the ass! enter one of those numbers!\n");
         	goto BAR;
 		}
+	}
+	else
+		printf("the bar is closed during day...\n");
