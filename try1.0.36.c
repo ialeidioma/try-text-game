@@ -23,6 +23,7 @@ It will be a lot of work already, most of things I can already do them, others I
 #include <stdlib.h>
 #include <unistd.h>
 #include <windows.h>
+#include <unistd.h>
 #define SIZE 999
 
 int main(void)
@@ -31,11 +32,34 @@ int main(void)
     
     
 	/*game starts here*/
+	for(;;){
+	
+	system("color f1");
     
-    system("color f1");
+    Sleep(500);
+    printf("this is the menu\n");
+    Sleep(500);
+    printf("you can chose to start a new game, load a previously started game, or exit\n");
+	Sleep(1500);
+	printf("you need to type something like \"start game\" or \"load game\"\n");
+    gets(menu_con);
     
+    switch(menu_con[0]){
+    
+	case 's':
+	
+	printf("LOADING");
+	for(a=0;a<=7;a++){
+	Sleep(500);
+	printf(" \b\b");
+	Sleep(500);
+	}
+		
     #include "intro.h"
     
+    #include "save.h"
+    
+    LOAD:
     for(;;){
     clock_t begin = clock();
 	printf("decide where to go\n");
@@ -109,4 +133,13 @@ int main(void)
 	
 	}
 	return 0;
+	
+	case 'l':
+		#include "loading.h"
+	
+	default:
+		printf("you didn't enter one of the above\n");
+		break;
+}
+}
 }

@@ -4,8 +4,9 @@
 	int day_lenght,quest_conditions;
 	double hp,e,xp,lv,dmg,edmg,heal,xpo,xp_multi,maxhp,gold,armour_eq,atck_up,wp_eq;
     double i,j;
-    char buffer[SIZE], player_name[SIZE];
+    char buffer[SIZE], player_name[SIZE],menu_con[SIZE];
 	char * pch;
+	FILE * fp;
     pch=player_name;
     
     srand(time(NULL));

@@ -1,6 +1,6 @@
 /*intro*/
 sleep(1);
-printf("you've always lived here\n");
+printf(" you've always lived here\n");
 sleep(1);
 printf("all looks calm, the people around you look happy\n");
 sleep(2);
@@ -71,7 +71,7 @@ if (fgets(buffer, sizeof buffer, stdin))
    		if (!isspace(*check) && *check != 0)
    		{
    		printf("your age doesn't contain letters LEL\n");
-   		return 1;
+   		break;
 		}
   	}
 sleep(2);
@@ -92,7 +92,7 @@ else if(player_age>=89)
 else
 	printf("your age is negative...the only class for you is ghost lol\n");
 sleep(2);
-printf("now we have setted these\n");
+printf("now we have set these\n");
 sleep(2);
 printf("let's move forward\n");
 sleep(1);
