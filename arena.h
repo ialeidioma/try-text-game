@@ -244,7 +244,7 @@
 		
 				/*ask player to exit the arena*/
 		
-				if(e_count%1==0){
+				if(e_count%10==0){
 				gold += 40*e_count;
 				printf("You've defeated %d enemies!\n",e_count);
 				printf("prize for defeating %d enemies is %d gold!\n",e_count, 40*e_count);
