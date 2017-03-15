@@ -18,7 +18,7 @@
     j=1.;
     xp_multi=1.5;
     max_hp=60.;
-    gold=9000.;
+    gold=0.;
     armour_eq=0.;
     armour_atck_up=0.;
     wp_eq=0.;
@@ -32,7 +32,7 @@
     day_con=1;
 	reward=0;
 	board_con=0;
-    day_lenght=20;
+    day_lenght=150;
     quest_con=0;
     dmg_brawl=4;
     e_dmg_brawl=4;
