@@ -75,7 +75,7 @@ if (fgets(buffer, sizeof buffer, stdin))
 		}
   	}
 sleep(2);
-printf("you say to have %d years\n",player_age);
+printf("you are %d years old\n",player_age);
 	sleep(2);
 if(player_age>0 && player_age<14)
 	printf("you are young!kek\n");
@@ -95,4 +95,3 @@ sleep(2);
 printf("now we have set these\n");
 sleep(2);
 printf("let's move forward\n");
-sleep(1);

@@ -3,7 +3,7 @@
 			printf("you enter the bar\n");
     		BAR:
     		printf("where do you want to head ?\n");
-    		printf(" 1:adventurers' table\n 2:counter\n 3:girls' table\n 4:notice-board\n 5:receptionist 6:empty table\n 7:exit bar\n");
+    		printf(" 1:adventurers' table\n 2:counter\n 3:girls' table\n 4:notice-board\n 5:receptionist\n 6:empty table\n 7:exit bar\n");
 			printf("enter either 1,2,3,4,5 or 6\n");
 			scanf("%d",&bar_con);
 			    		
@@ -37,7 +37,7 @@
 			case 2:
 				printf("the barman greets you\n");
 				printf("hello lad!\n");
-				COUNTER:
+				for(;;){
 				printf("what you want to drink ?\n");
 				printf("list of drinks:\n");
 				printf(" donnod\n the wagglestick\n ayaya intensified\n fizzy bubbley\n");
@@ -50,34 +50,50 @@
 					printf("Here's your donnod, enjoy, it costs 20 gold pieces\n");
 					gold -=20;
 					alcohol_con += 1;
-					goto COUNTER;
 				}
 				else if(buffer[0]=='t' && gold>=25){
 					printf("Here's your wagglestick, enjoy, it costs 25 gold pieces\n");
 					gold -=25;
 					alcohol_con += 2;
-					goto COUNTER;
 				}				
 				else if(buffer[0]=='a' && gold>=30){
 					printf("Here's your ayaya intensified, enjoy, it costs 30 gold pieces\n");
 					gold -=30;
 					alcohol_con += 3;
-					goto COUNTER;
 				}
 				else if(buffer[0]=='f' && gold>=25){
 					printf("Here's your fizzle bubbley, enjoy, it costs 35 gold pieces\n");
 					gold -=35;
 					alcohol_con += 5;
-					goto COUNTER;
 				}
 				else{
 					printf("you don't have the money or you didn't enter one of the drinks :/\n");
 					goto BAR;
 				}
-				if(alcohol_con>=14){
-					//include brawl header here
+				if(alcohol_con>=14 && alcohol_con<=20){
+					if(rand()%12==0){
+							#include "brawl.h"
+							}
 				}
-				
+				else if(alcohol_con>=21 && alcohol_con<=31){
+					if(rand()%6==0){
+						#include "brawl.h"
+						}
+				}
+				else if(alcohol_con>=32 && alcohol_con<=42){
+					if(rand()%4==0){					
+						#include "brawl.h"
+						}
+				}
+				else if(alcohol_con>=43 && alcohol_con<=63){
+					if(rand()%2==0){					
+						#include "brawl.h"
+						}
+				}
+				else if(alcohol_con>=63){					
+						#include "brawl.h"
+				}							
+				}
 
 				
 			/*girls'table*/
@@ -146,8 +162,9 @@
 				if(quest_con!=0 && quest_conditions==e_count){
 					gold += reward;
 					quest_con=0;
+					e_count=0;
 					printf("she greets you\n");
-					printf("here's your reward for the quest!(current gold:%d)\n",gold);
+					printf("\"here's your reward for the quest!\"(current gold:%d)\n",gold);
 					goto BAR;
 				}
 				else{

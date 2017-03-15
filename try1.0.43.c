@@ -62,6 +62,7 @@ int main(void)
     LOAD:
     for(;;){
     clock_t begin = clock();
+    Sleep(500);
 	printf("decide where to go\n");
 	printf(" 1:shop\n 2:arena\n 3:dungeon\n 4:bar\n 5:exit game\n");
 	printf("enter either 1,2,3,4 or 5\n");

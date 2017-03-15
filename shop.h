@@ -103,7 +103,7 @@
 				else if(buy_con==1 && shop_con==4 && gold >= 1500){
 					gold -= 1500;
 					armour_eq=3.;
-					atck_up=2.;  
+					armour_atck_up=2.;  
 					armour_con=4;					
 					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}				
