@@ -5,14 +5,14 @@ unknow update issues (new implemented code needs to be checked)
 
 New features to add:
 story inspired by dune, character development, spending points restore xp multiplayer, classses, "day & night" cycle
-bar zone (waste money, some eroge, gambling, quests, chance to get into a fight after drinking)
+bar zone (some eroge, gambling)
 dungeon zone (less enemies but stronger, chance to find item, complete quests)
 temple zone (learn skills, chance to get high difficulty quests, (saves???) )
 guild zone (quests, reputition, possibility to recruit party member(with enough reputition, higher rep higher stats))
 add more zones, items, npcs for party, quests, monters etc
 (if I manage to get a save system done, needs to write data into a file, read that data, encrypt it so that it can't be hacked ???)
 (add a plot, need someone to make a story but player not forced to play the story)
-(events happen while player is out ???, such as no items in shop, no quests)
+(events happen while player is out ??? such as no items in shop, no quests)
 
 It will be a lot of work already, most of things I can already do them, others I need to search*/
 
@@ -54,8 +54,10 @@ int main(void)
 	printf(" \b\b");
 	Sleep(500);
 	}
-		
+	
     #include "intro.h"
+    
+    #include "stats.h"
     
     #include "save.h"
     
