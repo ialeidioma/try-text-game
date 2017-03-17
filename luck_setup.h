@@ -15,7 +15,7 @@
 		printf("you added %d point(s) to luck\n",3);
 	}
 	else if(stats_con[9]=='l' && stats_con[14]=='4'){
-		defense += 4;
+		luck += 4;
 		stats_count -=4;
 		printf("you added %d point(s) to luck\n",4);
 	}

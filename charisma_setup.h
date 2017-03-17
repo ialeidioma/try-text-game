@@ -15,7 +15,7 @@
 		printf("you added %d points to charisma\n",3);
 	}
 	else if(stats_con[9]=='c' && stats_con[18]=='4'){
-		defense += 4;
+		charisma += 4;
 		stats_count -=4;
 		printf("you added %d points to charisma\n",4);
 	}

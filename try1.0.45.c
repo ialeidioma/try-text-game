@@ -4,13 +4,14 @@ spelling needs to be checked (most times I write this program I'm too tired to d
 unknow update issues (new implemented code needs to be checked)
 
 New features to add:
-story inspired by dune, character development, spending points restore xp multiplayer, classses, "day & night" cycle
-bar zone (some eroge, gambling)
+story inspired by dune, character development, spending points restore xp multiplayer, classses
+bar zone (some eroge, gambling,random bets,more than 1 enemy in brawl)
+add survival stats (food, water, stamina...)(running low on one removes your health etc)
 dungeon zone (less enemies but stronger, chance to find item, complete quests)
 temple zone (learn skills, chance to get high difficulty quests, (saves???) )
 guild zone (quests, reputition, possibility to recruit party member(with enough reputition, higher rep higher stats))
 add more zones, items, npcs for party, quests, monters etc
-(if I manage to get a save system done, needs to write data into a file, read that data, encrypt it so that it can't be hacked ???)
+(save data encrypted so that it can't be hacked ???)
 (add a plot, need someone to make a story but player not forced to play the story)
 (events happen while player is out ??? such as no items in shop, no quests)
 
@@ -42,7 +43,7 @@ int main(void)
     printf("you can chose to start a new game, load a previously started game, or exit\n");
 	Sleep(1500);
 	printf("you need to type something like \"start game\" or \"load game\"\n");
-    gets(menu_con);
+    fgets(menu_con, sizeof(menu_con), stdin);
     
     switch(menu_con[0]){
     
@@ -58,6 +59,8 @@ int main(void)
     #include "intro.h"
     
     #include "stats.h"
+    
+    #include "class_selection.h"
     
     #include "save.h"
     

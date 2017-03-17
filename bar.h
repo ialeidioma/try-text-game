@@ -45,7 +45,7 @@
 				
 				/*choose drink*/
 				
-				gets(buffer);
+				fgets(buffer,sizeof (buffer),stdin);
 				if(buffer[0]=='d' && gold>=20){
 					printf("Here's your donnod, enjoy, it costs 20 gold pieces\n");
 					gold -=20;
@@ -138,7 +138,7 @@
 					printf("no quests available right now...bad luck i guess\n");
 				}
 				printf("do you want to accept this quest ?\n");
-				gets(buffer);
+				fgets(buffer,sizeof (buffer),stdin);
 				
 				if(buffer[0]=='y' || buffer[0]=='Y'){
 					printf("you accepted the quest,when you complete it go to the receptionist...if you complete it :P\n");

@@ -4,7 +4,7 @@
 	printf("\"ehy! that was my beer! damn you asshole! Pay me back!\"\n");
 	printf("do you wish to pay him back ? (you also need to pay the glass since you broke it)\n");
 	printf("gold required: 50\n");
-	gets(brawl_con);
+	fgets(brawl_con,sizeof (brawl_con),stdin);
 	
 	if(brawl_con[0]=='y' || brawl_con[0]=='Y' && gold>=50){
 		gold -= 50;
@@ -34,7 +34,7 @@
 		do {
         	sleep(1);
         	printf("decide to attack or flee or heal:\n");
-        	gets(brawl_con);
+        	fgets(brawl_con,sizeof (brawl_con),stdin);
         	if(brawl_con[0]=='a'){
         		if( rand()%3==0 || rand()%7==0 || rand()%11==0){
         		e_hp_brawl -=dmg_brawl;
@@ -73,7 +73,7 @@
 				printf("the peasant falls unconscious!\n");
             	printf("you gained %d gold from the bets against you (total gold %2.1f)\n",100,gold);
             	printf("do you want to \"steal\" his gold too ?\n");
-            	gets(brawl_con);
+            	fgets(brawl_con,sizeof (brawl_con),stdin);
             	if(brawl_con[0]=='y' || brawl_con[0]=='Y'){
             		printf("you search the unconscious commoner\n");
             		if(rand()%3==0){
