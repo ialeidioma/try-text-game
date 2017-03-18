@@ -5,19 +5,19 @@
 	printf("do you wish to pay him back ? (you also need to pay the glass since you broke it)\n");
 	printf("gold required: 50\n");
 	fgets(brawl_con,sizeof (brawl_con),stdin);
-	
-	if(brawl_con[0]=='y' || brawl_con[0]=='Y' && gold>=50){
+
+	if((brawl_con[0]=='y' || brawl_con[0]=='Y') && gold>=50){
 		gold -= 50;
-		printf("you hand over the gold (current gold:%d)\n",gold);
+		printf("you hand over the gold (current gold:%2.1f)\n",gold);
 		printf("\"ehy fellas, here's someone who knows his place\"\n");
 		printf("everyone in the bar starts to laugh at you...maybe you should have turned him down...\n");
 		//lose reputation when implemented
 		//add a "personality" system ?
 		goto BAR;
 	}
-	
+
 	/*grammatical errors intentional here since you are drunk*/
-	
+
 	else if(brawl_con[0]=='n' || brawl_con[0]=='N'){
 		printf("\"sory i didn' mean to do that...\"\n");
 		printf("\"you think i care ? dumbass\"\n");
@@ -32,7 +32,7 @@
 		e_hp_brawl=50;
 		hp_brawl=50;
 		do {
-        	sleep(1);
+        	Sleep(1000);
         	printf("decide to attack or flee or heal:\n");
         	fgets(brawl_con,sizeof (brawl_con),stdin);
         	if(brawl_con[0]=='a'){
@@ -51,12 +51,12 @@
             	if(hp_brawl<=max_hp)
 					printf("you healed yourself of %d hp, keep up the fight,(hp=%d)\n",heal_brawl,hp_brawl);
             	else{
- 					hp_brawl -= heal;           		
+ 					hp_brawl -= heal;
             		printf("sorry can't heal right now!(hp=%d max_hp=%d)\n",hp_brawl,max_hp_brawl);
 				}
 			}
 			if(brawl_con[0] != 'f'){
-			
+
 			if( rand()%3==0 || rand()%7==0 || rand()%11==0){
             	hp_brawl -= e_dmg_brawl;
                 printf("the enemy attacked you!(remaining player hp:%d)\n",hp_brawl);
@@ -68,7 +68,7 @@
 			printf("the commoner is still alive!\n");
 	}while(e_hp_brawl >0 && hp_brawl>0);
 	if(e_hp_brawl<=0){
-            	e_count++;
+            	e_count +=1;
             	gold += 100;
 				printf("the peasant falls unconscious!\n");
             	printf("you gained %d gold from the bets against you (total gold %2.1f)\n",100,gold);
@@ -83,11 +83,11 @@
             		else if(rand()%7==0){
             			gold += 200;
             			printf("you find %d gold(current gold %2.1f)\n",100,gold);
-					}	
+					}
             		else if(rand()%11==0){
             			gold += 500;
             			printf("you find %d gold(current gold %2.1f)\n",500,gold);
-					}				
+					}
 				}
 				else
 					printf("you leave the man there...\n");

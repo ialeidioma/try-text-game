@@ -1,25 +1,25 @@
 /*intro*/
-sleep(1);
+Sleep(1000);
 printf(" you've always lived here\n");
-sleep(1);
+Sleep(1000);
 printf("all looks calm, the people around you look happy\n");
-sleep(2);
+Sleep(2000);
 printf("but you always wondered what's behind the desert...\n");
-sleep(2);
+Sleep(2000);
 printf("if there's something other than desert...\n");
-sleep(2);
+Sleep(2000);
 printf("you need to know what's out there \n");
-sleep(2);
+Sleep(2000);
 printf("it won't be easy but you'll enjoy it(at least I hope you will XD)\n");
-sleep(3);
+Sleep(3000);
 printf("and so your adventure begins...\n");
-sleep(2);
+Sleep(2000);
 printf("but there are a few things to set before we can continue...\n");
-sleep(2);
+Sleep(2000);
 printf("\a");
 Sleep(500);
 printf("you heard that ?\n");
-sleep(1);
+Sleep(1000);
 printf("that means my virus...");
 for(a=0;a<=8;a++){
 	Sleep(500);
@@ -27,21 +27,21 @@ for(a=0;a<=8;a++){
 	Sleep(500);
 }
 printf(" game ");
-sleep(1);
+Sleep(1000);
 printf("has completed installation and is ready to size control of your pc!\n");
-sleep(3);
+Sleep(3000);
 printf("and you'll be shut out in...\n");
 for(a=3;a>0;a--){
-	sleep(1);
+	Sleep(1000);
 	printf("%d\n",a);
 }
-sleep(1);
+Sleep(1000);
 printf("uhm...\n");
-sleep(1);
+Sleep(1000);
 printf("seems like you are still there...\n");
 Sleep(1500);
 printf("while i try to fix that...enjoy the game!\n");
-sleep(2);
+Sleep(2000);
 printf("how shall you be called ?\n");
 
 /*player name*/
@@ -49,14 +49,14 @@ printf("how shall you be called ?\n");
 scanf("%[^\n]",player_name);
 
 if(strstr(pch, "nigga") || strstr(pch, "shit") || strstr(pch, "fuck") || strstr(pch, "dick")) {
-	sleep(1);
+	Sleep(1000);
 	printf("rude name lol!\n");
 }
-sleep(1);
+Sleep(1000);
 printf("very well %s\n",player_name);
-sleep(2);
+Sleep(2000);
 printf("i hope to hear great deeds about you\n");
-sleep(2);
+Sleep(2000);
 printf("what is your age ?\n(notice this will in the future have important repercussions on gameplay)\n");
 scanf("%d",&player_age);
 
@@ -74,9 +74,9 @@ if (fgets(buffer, sizeof buffer, stdin))
    		break;
 		}
   	}
-sleep(2);
+Sleep(2000);
 printf("you are %d years old\n",player_age);
-	sleep(2);
+	Sleep(2000);
 if(player_age>0 && player_age<14)
 	printf("you are young!kek\n");
 else if(player_age>=14 && player_age<28)
@@ -91,7 +91,7 @@ else if(player_age>=89)
 	printf("a foot in the grave I would say\n");
 else
 	printf("your age is negative...the only class for you is ghost lol\n");
-sleep(2);
+Sleep(2000);
 printf("now we have set these\n");
-sleep(2);
+Sleep(2000);
 printf("let's move forward\n");

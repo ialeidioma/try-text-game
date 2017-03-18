@@ -4,7 +4,7 @@
 	printf("your current stats are:\n strenght:%d\n luck:%d\n charisma:%d\n intelligence:%d\n dexterity:%d\n",strenght,luck,charisma,intelligence,dexterity);
 	printf("type \"allocate strenght 2\" or \"allocate defense 3\" i hope you get it lol\n");
 	fgets(stats_con,sizeof (stats_con),stdin);
-	
+
 	if(strenght<5 && stats_con[9]=='s'){
 		#include "strenght_setup.h"
 		}
@@ -24,8 +24,8 @@
 		printf("you can't allocate more than 5 points for this stat\n");
 	}
 	}while(stats_count !=0);
-	
+
 	printf("you've allocated all current available points\n");
-	sleep(2);
+	Sleep(2000);
 	printf("they don't do anything for now lol\n");
-	sleep(2);
+	Sleep(2000);

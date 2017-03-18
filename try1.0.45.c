@@ -24,19 +24,18 @@ It will be a lot of work already, most of things I can already do them, others I
 #include <stdlib.h>
 #include <unistd.h>
 #include <windows.h>
-#include <unistd.h>
 #define SIZE 999
 
 int main(void)
 {
 	#include "variables.h"
-    
-    
+
+
 	/*game starts here*/
 	for(;;){
-	
+
 	system("color f1");
-    
+
     Sleep(500);
     printf("this is the menu\n");
     Sleep(500);
@@ -44,26 +43,26 @@ int main(void)
 	Sleep(1500);
 	printf("you need to type something like \"start game\" or \"load game\"\n");
     fgets(menu_con, sizeof(menu_con), stdin);
-    
+
     switch(menu_con[0]){
-    
+
 	case 's':
-	
+
 	printf("LOADING");
 	for(a=0;a<=7;a++){
 	Sleep(500);
 	printf(" \b\b");
 	Sleep(500);
 	}
-	
+
     #include "intro.h"
-    
+
     #include "stats.h"
-    
+
     #include "class_selection.h"
-    
+
     #include "save.h"
-    
+
     LOAD:
     for(;;){
     clock_t begin = clock();
@@ -72,9 +71,9 @@ int main(void)
 	printf(" 1:shop\n 2:arena\n 3:dungeon\n 4:bar\n 5:exit game\n");
 	printf("enter either 1,2,3,4 or 5\n");
 	scanf("%d",&switch_con);
-	
+
 	/*check if it's a number otherwise sends to START*/
-	
+
 	fflush(stdout);
   	if (fgets(buffer, sizeof buffer, stdin))
 	  	{
@@ -87,62 +86,62 @@ int main(void)
     		break;
 			}
   		}
-	
-	/*main switch to select area*/	
-	
+
+	/*main switch to select area*/
+
 	switch(switch_con){
 
 	/*shop*/
-	
+
 	case 1 :
 			#include "shop.h"
 			break;
-			
+
 	/*arena*/
-	
+
 	case 2 :
 			#include "arena.h"
     		break;
-    		
+
     /*dungeon*/
-    
+
 	case 3 :
 			#include "dungeon.h"
-    		break;	
-    		
+    		break;
+
 	/*bar*/
-    	
+
 	case 4:
 			#include "bar.h"
 			break;
-			
+
 		//will probably add more cases here
-        /*exit game*/ 
-    	
+        /*exit game*/
+
 	case 5 :
     		printf("hope you had fun!\n");
         	printf("Cyaaaaaaa!\n");
         	return 0;
-    
+
 	/*player didn't enter one of the previous cases*/
-    
+
 	default :
         	printf("don't be a pain in the ass! enter one of those numbers!\n");
         	break;
     }
     clock_t end = clock();
 	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	
+
 	/*day control*/
-	
+
 	#include "day_control.h"
-	
+
 	}
 	return 0;
-	
+
 	case 'l':
 		#include "loading.h"
-	
+
 	default:
 		printf("you didn't enter one of the above\n");
 		break;

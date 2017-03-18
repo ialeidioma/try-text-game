@@ -1,5 +1,5 @@
-	/*variables*/	
-	
+	/*variables*/
+
     int switch_con,arena_con,e_count,arena_exit,shop_con,bar_con,buy_con,armour_con,wp_con,s_p_con,l_p_con,roger_con,ban_con,alcohol_con,player_age,a,day_con,quest_con,reward,board_con;
 	int day_lenght,quest_conditions,hp_brawl,dmg_brawl,e_dmg_brawl,e_hp_brawl,max_hp_brawl,heal_brawl,strenght,luck,charisma,intelligence,dexterity;
 	unsigned int stats_count;
@@ -10,7 +10,7 @@
 	FILE * fp;
     pch=player_name;
     clsel=player_class;
-    
+
     srand(time(NULL));
     i=1.;
     hp=50.;
@@ -43,4 +43,5 @@
     charisma=0;
     intelligence=0;
     dexterity=0;
+    max_hp_brawl=60;
     stats_count=15;
