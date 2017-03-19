@@ -1,5 +1,6 @@
 		/*area*/
 		printf("prepare to fight!\n");
+		if(quest_conditions != 20 || quest_conditions != 30)
 		e_count=0;
 		/*combat system*/
 
@@ -169,15 +170,25 @@
 
             /*enemy attack*/
 
-            if(arena_con != 0){
+            if(arena_con ==1 || arena_con==2){
 
-			if( rand()%3==0 || rand()%7==0 || rand()%11==0){
+			if( rand()%3==0 || rand()%16==0 || rand()%dexterity==0){
             	hp -= e_dmg-armour_eq;
-                printf("the enemy attacked you!(remaining player hp:%2.1f)\n",hp);
+                printf("the enemy attacked you dealing %2.1f damage!(remaining player hp:%2.1f)\n",e_dmg-armour_eq,hp);
 			}
 			else
 				printf("the enemy missed! lucky!\n");
-		}
+            }
+            else if(arena_con!=1 && arena_con!= 2 && arena_con!= 0){
+
+ 			if( (rand()%3==0 || rand()%16==0 || rand()%dexterity==0) && rand()%luck==0){
+            	hp -= e_dmg-armour_eq;
+                printf("the enemy attacked you dealing %2.1f damage!(remaining player hp:%2.1f)\n",e_dmg-armour_eq,hp);
+			}
+			else
+				printf("the enemy missed! lucky!\n");
+            }
+
 
 		/*check armour equipped*/
 
@@ -199,14 +210,14 @@
            		printf("the heavy weapon hinders your mobility!\n");
            	if(armour_con==2)
            	    printf("the heavy armour hinders your mobility!\n");
-			if( rand()%3==0 || rand()%7==0 || rand()%11==0){
+			if( rand()%3==0 || rand()%16==0 || rand()%dexterity==0){
            	hp -= e_dmg-armour_eq;
             printf("the enemy attacked you!(remaining player hp:%2.1f)\n",hp);
 			}
 			else
 				printf("the enemy missed! lucky!\n");
 			if(wp_con==4 && armour_con==2){
-					if( rand()%3==0 || rand()%7==0 || rand()%11==0){
+					if( rand()%3==0 || rand()%16==0 || rand()%dexterity==0){
            			hp -= e_dmg-armour_eq;
             		printf("the enemy attacked you! causing %2.1f (remaining player hp:%2.1f)\n",e_dmg,hp);
 					}

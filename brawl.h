@@ -77,15 +77,15 @@
             	if(brawl_con[0]=='y' || brawl_con[0]=='Y'){
             		printf("you search the unconscious commoner\n");
             		if(rand()%3==0){
-            			gold += 100;
+            			gold += 300;
             			printf("you find %d gold(current gold %2.1f)\n",50,gold);
 					}
             		else if(rand()%7==0){
-            			gold += 200;
+            			gold += 400;
             			printf("you find %d gold(current gold %2.1f)\n",100,gold);
 					}
             		else if(rand()%11==0){
-            			gold += 500;
+            			gold += 700;
             			printf("you find %d gold(current gold %2.1f)\n",500,gold);
 					}
 				}

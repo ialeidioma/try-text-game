@@ -42,6 +42,9 @@ int main(void)
     printf("you can chose to start a new game, load a previously started game, or exit\n");
 	Sleep(1500);
 	printf("you need to type something like \"start game\" or \"load game\"\n");
+	printf("NOTE:game uses stings cause they are easier and safer than numbers, if there isn't a number near an option you need to\nwrite down that option\n");
+    printf("CREDITS: Thanks for testing it, really helps a lot\nYou can contribute in anyway you can\nYou can rip and rap the code\n");
+    printf("and that's all i would say\n");
     fgets(menu_con, sizeof(menu_con), stdin);
 
     switch(menu_con[0]){
@@ -55,87 +58,71 @@ int main(void)
 	Sleep(500);
 	}
 
-    #include "intro.h"
+   /* #include "intro.h"
 
     #include "stats.h"
 
     #include "class_selection.h"
 
-    #include "save.h"
+    #include "save.h" */
 
     LOAD:
     for(;;){
     clock_t begin = clock();
     Sleep(500);
 	printf("decide where to go\n");
-	printf(" 1:shop\n 2:arena\n 3:dungeon\n 4:bar\n 5:exit game\n");
-	printf("enter either 1,2,3,4 or 5\n");
-	scanf("%d",&switch_con);
-
-	/*check if it's a number otherwise sends to START*/
-
-	fflush(stdout);
-  	if (fgets(buffer, sizeof buffer, stdin))
-	  	{
-    		long value;
-    		char *check;
-    		value = strtol(buffer, &check, 0);
-    		if (!isspace(*check) && *check != 0)
-    		{
-      		printf("you didn't enter a number! Dumbass!\n");
-    		break;
-			}
-  		}
+	printf(" shop\n arena\n dungeon\n bar\n exit game\n");
+	printf("enter the name of the thing\n");
+	fgets(main_con,sizeof (main_con),stdin);
 
 	/*main switch to select area*/
 
-	switch(switch_con){
-
+	if(strstr(main_con, "shop")){
 	/*shop*/
-
-	case 1 :
 			#include "shop.h"
-			break;
+	}
 
 	/*arena*/
 
-	case 2 :
+    else if(strstr(main_con, "arena")){
 			#include "arena.h"
-    		break;
+    }
 
     /*dungeon*/
 
-	case 3 :
+	else if(strstr(main_con,"dungeon")){
 			#include "dungeon.h"
-    		break;
+	}
 
 	/*bar*/
 
-	case 4:
+	else if(strstr(main_con,"bar")){
 			#include "bar.h"
-			break;
+	}
 
 		//will probably add more cases here
         /*exit game*/
 
-	case 5 :
+	else if(strstr(main_con,"exit game")){
     		printf("hope you had fun!\n");
         	printf("Cyaaaaaaa!\n");
         	return 0;
+	}
 
 	/*player didn't enter one of the previous cases*/
 
-	default :
-        	printf("don't be a pain in the ass! enter one of those numbers!\n");
-        	break;
-    }
+	else
+        printf("don't be a pain in the ass! enter one of those cases!\n");
+
+
     clock_t end = clock();
 	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 
 	/*day control*/
 
+    if(main_con[0]!='s'){
 	#include "day_control.h"
-
+    }
 	}
 	return 0;
 

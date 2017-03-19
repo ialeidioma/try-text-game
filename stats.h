@@ -21,9 +21,13 @@
 		#include "charisma_setup.h"
 		}
 	else{
-		printf("you can't allocate more than 5 points for this stat\n");
+		printf("you can't allocate more than 6 points for this stat\n");
 	}
-	}while(stats_count !=0);
+	if(stats_count<0){
+        printf("i'm sorry but i can't let that happen");
+        return 0;
+	}
+	}while(stats_count!=0);
 
 	printf("you've allocated all current available points\n");
 	Sleep(2000);

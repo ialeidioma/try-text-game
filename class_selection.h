@@ -4,8 +4,9 @@
 	Sleep(1000);
 	printf("your age is %d...\n",player_age);
 	Sleep(1000);
+	dexterity+=2;
 	for(;;){
-	if(player_age<0){
+	if(player_age<=0){
 		snprintf(player_class,sizeof (player_class), "ghost");
 		printf("well as i said before...the only available class for you is %s!\n",player_class);
 		break;

@@ -3,7 +3,7 @@
 		intelligence += 1;
 		stats_count -=1;
 		printf("you added %d point to intelligence\n",1);
-	}	
+	}
 	else if(stats_con[9]=='i' && stats_con[22]=='2'){
 		intelligence += 2;
 		stats_count -=2;
@@ -25,17 +25,17 @@
 		printf("you added %d points to intelligence\n",5);
 	}
 	else if(stats_con[9]=='i' && stats_con[22]=='6'){
-		printf("you can't allocate more than 5 points for this stat\n");
+		printf("you can't allocate more than 6 points for this stat\n");
 	}
 	else if(stats_con[9]=='i' && stats_con[22]=='7'){
-		printf("you can't allocate more than 5 points for this stat\n");
+		printf("you can't allocate more than 6 points for this stat\n");
 	}
 	else if(stats_con[9]=='i' && stats_con[22]=='8'){
-		printf("you can't allocate more than 5 points for this stat\n");
+		printf("you can't allocate more than 6 points for this stat\n");
 	}
 	else if(stats_con[9]=='i' && stats_con[22]=='9'){
-		printf("you can't allocate more than 5 points for this stat\n");
+		printf("you can't allocate more than 6 points for this stat\n");
 	}
 	else if(stats_con[9]=='i' && stats_con[22]=='1' && stats_con[23]=='0'){
-		printf("you can't allocate more than 5 points for this stat\n");
+		printf("you can't allocate more than 6 points for this stat\n");
 	}
