@@ -58,13 +58,13 @@ int main(void)
 	Sleep(500);
 	}
 
-   /* #include "intro.h"
+    #include "intro.h"
 
     #include "stats.h"
 
     #include "class_selection.h"
 
-    #include "save.h" */
+    #include "save.h"
 
     LOAD:
     for(;;){
@@ -77,8 +77,10 @@ int main(void)
 
 	/*main switch to select area*/
 
+    /*shop*/
+
 	if(strstr(main_con, "shop")){
-	/*shop*/
+
 			#include "shop.h"
 	}
 
@@ -98,6 +100,12 @@ int main(void)
 
 	else if(strstr(main_con,"bar")){
 			#include "bar.h"
+	}
+
+	/*temple*/
+
+	else if(strstr(main_con,"temple")){
+        #include "temple.h"
 	}
 
 		//will probably add more cases here
