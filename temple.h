@@ -4,6 +4,6 @@
     Sleep(2000);
     printf("a young acolyte comes to open the door\n");
     for(;;){
-        printf("wait a while");
+        printf("wait a while\n");
         break;
     }

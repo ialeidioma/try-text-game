@@ -6,6 +6,7 @@
     double i,j;
     char buffer[SIZE], player_name[SIZE],menu_con[SIZE],brawl_con[SIZE],stats_con[SIZE],player_class[SIZE],main_con[SIZE];
 	char * pch, *clsel;
+	char* file="..."; /*write path here, for "security reasons i had to remove it so you can't know where the already compiler version saves*/
 	FILE * fp;
     pch=player_name;
     clsel=player_class;

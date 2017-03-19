@@ -71,7 +71,7 @@ int main(void)
     clock_t begin = clock();
     Sleep(500);
 	printf("decide where to go\n");
-	printf(" shop\n arena\n dungeon\n bar\n exit game\n");
+	printf(" shop\n arena\n dungeon\n bar\n temple\n exit game\n");
 	printf("enter the name of the thing\n");
 	fgets(main_con,sizeof (main_con),stdin);
 

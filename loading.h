@@ -1,8 +1,8 @@
 /*loading*/
-		if( access( "save.bin", F_OK ) != -1 )
+		if( access( file, F_OK ) != -1 )
 		{
 			printf("save present!\n");
-			fp=fopen("save.bin","r");
+			fp=fopen(file,"r");
 			fscanf(fp,"%s\n%d\n",&player_name,&player_age);
 			fscanf(fp,"%d\n%d\n%d\n%d\n%d\n",&strenght,&dexterity,&intelligence,&luck,&charisma);
 			fclose(fp);
