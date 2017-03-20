@@ -1,5 +1,4 @@
 /*class selection*/
-	printf("i'm tired i want this done for now, i'm gonna set the code while the names will be set tomorrow\n");
 	printf("let's see let's see...\n");
 	Sleep(1000);
 	printf("your age is %d...\n",player_age);
@@ -99,7 +98,7 @@
             break;
 		}
 		else
-            printf("you didn't choose one of the available classes");
+            printf("you didn't choose one of the available classes\n");
 	}
 	else if(player_age>=42 && player_age<65){
 		Sleep(1000);
@@ -124,7 +123,7 @@
             break;
 		}
 		else
-            printf("you didn't choose one of the available classes");
+            printf("you didn't choose one of the available classes\n");
 	}
 	else if(player_age>=65 && player_age<89){
 		Sleep(1000);
@@ -149,7 +148,7 @@
             break;
 		}
 		else
-            printf("you didn't choose one of the available classes");
+            printf("you didn't choose one of the available classes\n");
 	}
 	else {
 		printf("well not much here...for now will change tomorrow maybe...\n");
@@ -172,6 +171,6 @@
             break;
 		}
 		else
-            printf("you didn't choose one of the available classes");
+            printf("you didn't choose one of the available classes\n");
 	}
 	}
