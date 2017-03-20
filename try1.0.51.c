@@ -133,7 +133,6 @@ int main(void)
 	#include "day_control.h"
     }
 	}
-	return 0;
 
 	case 'l':
 		#include "loading.h"

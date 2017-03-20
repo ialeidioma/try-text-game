@@ -1,6 +1,6 @@
 		/*shop*/
 		printf("welcome welcome\n");
-		SHOP:
+		for(;;){
 		printf("what would you like to buy ?\n");
 		printf(" armours\n weapon\n items\n exit shop\n");
 		fgets(shop_con,sizeof(shop_con),stdin);
@@ -12,7 +12,6 @@
 			/*armours*/
 
 			if(strstr(shop_con,"armours")){
-				ARMOURS:
 				printf("ah well we don't have many armours...\n");
 				printf("but if you get me some items I could manage to make you something special, for the right price obviously\n");
 				printf("current available armours:\n");
@@ -29,7 +28,6 @@
 					printf("the merc suit offers moderate protection, in addition it boosts the wearer offense abilities, it costs 1500 gold pieces\n");
 				else{
 					printf("since you want to do smartass...you go back to the shop!\n");
-					goto SHOP;
 				}
 
 				printf("do you wish to buy this armour ?\n");
@@ -48,7 +46,6 @@
     			if (!isspace(*check) && *check != 0)
     			{
       			printf("sorry traveller, i don't get the meaning of %s\n",buffer);
-    			goto SHOP;
 				}
   				}
 
@@ -80,28 +77,10 @@
 
 				else
 					printf("you can't afford it sorry or you didn't want to buy it XD\n");
-
-				/*ask player where to go*/
-
-				printf("where do you wish to go ?\n");
-				printf(" weapon menu\n items menu\n exit shop\n");
-				fgets(shop_con,sizeof(shop_con),stdin);
-
-				if(strstr(shop_con,"weapon menu"))
-					goto WEAPONS;
-
-				else if(strstr(shop_con,"items menu"))
-					goto ITEMS;
-
-				else if(strstr(shop_con,"exit shop")){
-					printf("you left the shop\n");
-					break;
-                    }
 			}
 			/*weapons*/
 
 			else if(strstr(shop_con,"weapons")){
-				WEAPONS:
 				printf("ah well we don't have many weapons...\n");
 				printf("but if you get me some items I could manage to make you something special, for the right price obviously\n");
 				printf("current available weapons:\n");
@@ -121,10 +100,9 @@
 					printf("the greatsword offers high attack, it has a lower attack speed compared to other weapons, it costs 1500 gold pieces\n");
 				else{
 					printf("since you want to do smartass...you go back to the shop!\n");
-					goto SHOP;
 				}
 
-				printf("do you wish to buy this armour ?\n");
+				printf("do you wish to buy this weapon ?\n");
 				printf("current gold:%2.1f",gold);
 				printf("enter 1 to buy else for no\n");
 				scanf("%d",&buy_con);
@@ -140,7 +118,6 @@
     			if (!isspace(*check) && *check != 0)
     			{
       			printf("sorry traveller, i don't get the meaning of %s\n",buffer);
-    			goto SHOP;
 				}
   				}
 
@@ -173,28 +150,10 @@
 				else
 					printf("you can't afford it sorry or you didn't want to buy it XD\n");
 
-
-				/*ask player where to go*/
-
-				printf("where do you wish to go ?\n");
-				printf(" armours menu\n items menu\n exit shop\n");
-				fgets(shop_con,sizeof(shop_con),stdin);
-
-				if(strstr(shop_con,"armours menu"))
-					goto ARMOURS;
-
-				if(strstr(shop_con,"items menu"))
-					goto ITEMS;
-
-				if(strstr(shop_con,"exit shop")){
-					printf("you left the shop\n");
-					break;
-			}
 			}
 			/*special items*/
 
 			else if(strstr(shop_con,"items")){
-				ITEMS:
 				printf("ah well we don't have many items...\n");
 				printf("current available items:\n");
 				printf(" 1:small healing potion\n 2:large healing potion\n 3:roger's joke\n 4:ciel's banhammer\n");
@@ -210,7 +169,6 @@
 					printf("the ciel's banhammer offers high chance of obliterating an enemy, it's a pretty rare item so it costs 1100 gold pieces\n");
 				else{
 					printf("since you want to do smartass...you go back to the shop!\n");
-					goto SHOP;
 				}
 
 				printf("do you wish to buy this item ?\n");
@@ -229,7 +187,6 @@
     			if (!isspace(*check) && *check != 0)
     			{
       			printf("sorry traveller, i don't get the meaning of %s\n",buffer);
-    			goto SHOP;
 				}
   				}
 
@@ -257,23 +214,6 @@
 
 				else
 					printf("you can't afford it sorry or you didn't want to buy it XD\n");
-
-				/*ask player where to go*/
-
-				printf("where do you wish to go ?\n");
-				printf(" weapon menu\n armours menu\n exit shop\n");
-				fgets(shop_con,sizeof(shop_con),stdin);
-
-				if(strstr(shop_con,"weapon menu"))
-					goto WEAPONS;
-
-				if(strstr(shop_con,"armours menu"))
-					goto ARMOURS;
-
-				if(strstr(shop_con,"exit shop")){
-					printf("you left the shop\n");
-					break;
-			}
 			}
 
 			else if(strstr(shop_con,"exit shop")){
@@ -282,3 +222,4 @@
 				printf("mark my words!\n");
 				break;
 			}
+		}

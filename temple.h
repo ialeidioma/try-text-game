@@ -61,6 +61,8 @@
                     fgets(temple_con,sizeof(temple_con),stdin);
 
                     if(strstr(temple_con,"yes") || strstr(temple_con,"Yes")){
+                        gold -= 80;
+                        printf("current gold:%2.1f\n",gold);
                         printf("very well lets see what we can do for you\n");
                         #include "save.h"
                         printf("well, the save should have gone well...\"\n");
