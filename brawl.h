@@ -74,7 +74,7 @@
             	printf("you gained %d gold from the bets against you (total gold %2.1f)\n",100,gold);
             	printf("do you want to \"steal\" his gold too ?\n");
             	fgets(brawl_con,sizeof (brawl_con),stdin);
-            	if(brawl_con[0]=='y' || brawl_con[0]=='Y'){
+            	if(brawl_con[0]=='y' || brawl_con[0]=='Y' || strstr(brawl_con,"steal")){
             		printf("you search the unconscious commoner\n");
             		if(rand()%3==0){
             			gold += 300;

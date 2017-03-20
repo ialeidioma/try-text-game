@@ -4,7 +4,8 @@
 	Sleep(1000);
 	printf("your age is %d...\n",player_age);
 	Sleep(1000);
-	dexterity+=2;
+	if (dexterity<=2)
+        dexterity += 1;
 	for(;;){
 	if(player_age<=0){
 		snprintf(player_class,sizeof (player_class), "ghost");

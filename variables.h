@@ -4,9 +4,9 @@
 	int day_lenght,quest_conditions,hp_brawl,dmg_brawl,e_dmg_brawl,e_hp_brawl,max_hp_brawl,heal_brawl,strenght,luck,charisma,intelligence,dexterity,stats_count;
 	double hp,e_hp,xp,lv,dmg,e_dmg,heal,xpo,xp_multi,max_hp,gold,armour_eq,armour_atck_up,wp_eq;
     double i,j;
-    char buffer[SIZE], player_name[SIZE],menu_con[SIZE],brawl_con[SIZE],stats_con[SIZE],player_class[SIZE],main_con[SIZE];
+    char buffer[SIZE], player_name[SIZE],menu_con[SIZE],brawl_con[SIZE],stats_con[SIZE],player_class[SIZE],main_con[SIZE],temple_con[SIZE];
 	char * pch, *clsel;
-	char* file="..."; /*write path here, for "security reasons i had to remove it so you can't know where the already compiler version saves*/
+	char* file="C:\\Program Files (x86)\\Steam\\try.bin"; /*write path here, for "security reasons i had to remove it so you can't know where the already compiler version saves*/
 	FILE * fp;
     pch=player_name;
     clsel=player_class;

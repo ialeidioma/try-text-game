@@ -135,7 +135,9 @@
 				}
 				else{
 					board_con=0;
+					quest_con=0;
 					printf("no quests available right now...bad luck i guess\n");
+					goto BAR;
 				}
 				printf("do you want to accept this quest ?\n");
 				fgets(buffer,sizeof (buffer),stdin);

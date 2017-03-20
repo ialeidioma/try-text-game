@@ -6,6 +6,7 @@ unknow update issues (new implemented code needs to be checked)
 New features to add:
 story inspired by dune, character development, spending points restore xp multiplayer, classses
 bar zone (some eroge, gambling,random bets,more than 1 enemy in brawl)
+possibility to steal items from shop (become outlaw ?)
 add survival stats (food, water, stamina...)(running low on one removes your health etc)
 dungeon zone (less enemies but stronger, chance to find item, complete quests)
 temple zone (learn skills, chance to get high difficulty quests, (saves???) )
@@ -53,9 +54,9 @@ int main(void)
 
 	printf("LOADING");
 	for(a=0;a<=7;a++){
-	Sleep(500);
+	Sleep(400);
 	printf(" \b\b");
-	Sleep(500);
+	Sleep(400);
 	}
 
     #include "intro.h"
