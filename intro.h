@@ -46,9 +46,9 @@ printf("how shall you be called ?\n");
 
 /*player name*/
 
-scanf("%[^\n]",player_name);
+fgets(player_name,sizeof(player_name),stdin);
 
-if(strstr(pch, "nigga") || strstr(pch, "shit") || strstr(pch, "fuck") || strstr(pch, "dick")) {
+if(strstr(player_name, "nigga") || strstr(player_name, "shit") || strstr(player_name, "fuck") || strstr(player_name, "dick")) {
 	Sleep(1000);
 	printf("rude name lol!\n");
 }

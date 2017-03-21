@@ -3,7 +3,8 @@
 		{
 			printf("save present!\n");
 			fp=fopen(file,"r");
-			fscanf(fp,"%s\n%d\n",player_name,&player_age);
+			fgets(player_name,sizeof(player_name),fp);
+			fscanf(fp,"%d\n",&player_age);
 			fscanf(fp,"%d\n%d\n%d\n%d\n%d\n",&strenght,&dexterity,&intelligence,&luck,&charisma);
 			fscanf(fp,"%lf\n%lf\n%lf\n%lf\n%lf\n",&i,&j,&xp,&xpo,&lv);
             fscanf(fp,"%lf\n%lf\n%lf\n%lf\n%lf\n%d\n",&xp_multi,&max_hp,&hp,&gold,&armour_eq,&armour_con);
