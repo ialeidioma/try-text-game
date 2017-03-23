@@ -53,7 +53,7 @@ if(strstr(player_name, "nigga") || strstr(player_name, "shit") || strstr(player_
 	printf("rude name lol!\n");
 }
 Sleep(1000);
-printf("very well %s\n",player_name);
+printf("very well %s",player_name);
 Sleep(2000);
 printf("i hope to hear great deeds about you\n");
 Sleep(2000);

@@ -12,7 +12,6 @@ dungeon zone (less enemies but stronger, chance to find item, complete quests)
 temple zone (learn skills, chance to get high difficulty quests, (saves???) )
 guild zone (quests, reputition, possibility to recruit party member(with enough reputition, higher rep higher stats))
 add more zones, items, npcs for party, quests, monters etc
-(save data encrypted so that it can't be hacked ???)
 (add a plot, need someone to make a story but player not forced to play the story)
 (events happen while player is out ??? such as no items in shop, no quests)
 
@@ -67,7 +66,11 @@ int main(void)
 
     #include "save.h"
 
+    //#include "encryption.h"
+
     LOAD:
+    getchar();
+    system("cls");
     for(;;){
     clock_t begin = clock();
     Sleep(500);
@@ -135,6 +138,7 @@ int main(void)
 	}
 
 	case 'l':
+
 		#include "loading.h"
 
 	default:

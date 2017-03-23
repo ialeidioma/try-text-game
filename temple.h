@@ -64,7 +64,10 @@
                         gold -= 80;
                         printf("current gold:%2.1f\n",gold);
                         printf("very well lets see what we can do for you\n");
+                        if(rand()%3==0){
                         #include "save.h"
+                        #include "encryption.h"
+                        }
                         printf("well, the save should have gone well...\"\n");
                         printf("\"thank you, i hope it did save lol\"\n");
                         printf("you leave the temple and head back to the village\n");

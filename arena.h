@@ -5,9 +5,11 @@
 		/*combat system*/
 
 		while(hp > 0){
+        scale_str=0.25*strenght;
+        scale_int=0.25*intelligence;
 		e_hp=20*i;
-		dmg= 4.*j+armour_atck_up+wp_eq;
-    	heal= 6.*j;
+		dmg= 4.*j+armour_atck_up+wp_eq+scale_str;
+    	heal= 6.*j+scale_int;
     	heal_brawl = (int) heal;
 		e_dmg= 5.*i;
         printf("you encountered an enemy!\n");
@@ -172,7 +174,7 @@
 
             if(arena_con ==1 || arena_con==2){
 
-			if( rand()%3==0 || rand()%16==0 || rand()%dexterity==0){
+			if( rand()%3==0 || rand()%16==0 || rand()%10==0 || rand()%dexterity==0){
             	hp -= e_dmg-armour_eq;
                 printf("the enemy attacked you dealing %2.1f damage!(remaining player hp:%2.1f)\n",e_dmg-armour_eq,hp);
 			}
@@ -181,7 +183,7 @@
             }
             else if(arena_con!=1 && arena_con!= 2 && arena_con!= 0){
 
- 			if( (rand()%3==0 || rand()%16==0 || rand()%dexterity==0) && rand()%luck==0){
+ 			if( (rand()%3==0 || rand()%16==0 || rand()%10==0 || rand()%dexterity==0) && rand()%luck==0){
             	hp -= e_dmg-armour_eq;
                 printf("the enemy attacked you dealing %2.1f damage!(remaining player hp:%2.1f)\n",e_dmg-armour_eq,hp);
 			}
@@ -289,7 +291,8 @@
 			/*check if player is still alive*/
 
 	if(hp<=0){
-        printf("too bad you died! Thanks for playing!\n");
+        printf("too bad you died! thanks for playing!\n");
+        printf("and sorry for deleting your save (lenny face(can't print it lol))\n");
         Sleep(3000);
-        return 0;
+        break;
     }

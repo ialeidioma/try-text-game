@@ -1,11 +1,16 @@
 	/*variables*/
 
-    int arena_con,e_count,arena_exit,bar_con,buy_con,armour_con,wp_con,s_p_con,l_p_con,roger_con,ban_con,alcohol_con,player_age,a,day_con,quest_con,reward,board_con;
-	int day_lenght,quest_conditions,hp_brawl,dmg_brawl,e_dmg_brawl,e_hp_brawl,max_hp_brawl,heal_brawl,strenght,luck,charisma,intelligence,dexterity,stats_count;
+    int arena_con,e_count,arena_exit,bar_con,buy_con,armour_con,wp_con,s_p_con,l_p_con,roger_con,ban_con,alcohol_con,player_age,a,day_con,quest_con,reward,board_con,rm;
+	int day_lenght,quest_conditions,hp_brawl,dmg_brawl,e_dmg_brawl,e_hp_brawl,max_hp_brawl,heal_brawl,strenght,luck,charisma,intelligence,dexterity,stats_count,scale_str,scale_int;
 	double hp,e_hp,xp,lv,dmg,e_dmg,heal,xpo,xp_multi,max_hp,gold,armour_eq,armour_atck_up,wp_eq;
     double i,j;
     char buffer[SIZE], player_name[SIZE],menu_con[SIZE],brawl_con[SIZE],stats_con[SIZE],player_class[SIZE],main_con[SIZE],temple_con[SIZE],shop_con[SIZE];
-	char* file="..."; /*write path here, for "security reasons i had to remove it so you can't know where the already compiler version saves*/
+    char *file="try.bin";
+    char encFile[200];
+    char newencFile[200];
+    char decFile[200];
+    char newdecFile[200];
+
 	FILE * fp;
 
     srand(time(NULL));

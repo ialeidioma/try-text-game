@@ -31,5 +31,5 @@
 
 	printf("you've allocated all current available points\n");
 	Sleep(2000);
-	printf("they don't do anything for now lol\n");
+	printf("strenght, dexterity,luck,intelligence do something, others not yet\n");
 	Sleep(2000);
