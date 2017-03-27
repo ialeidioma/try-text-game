@@ -14,8 +14,18 @@
             printf("a black dressed man is training with some acolytes\n");
             printf("he doesn't even turn to see you coming\n");
             printf("\"welcome welcome, i can help you develop your skills\n");
-            printf("sadly for now i'm too busy, please come back later\"\n");
-            break;
+            printf("for the moment i can only help you upgrade your attributes...\n");
+            printf("that costs 80 gold pieces\n");
+            printf("do you wish to proceed ?\"\n");
+            fgets(temple_con,sizeof(temple_con),stdin);
+
+                if(strstr(temple_con,"yes") || strstr(temple_con,"Yes")){
+                    gold -= 80;
+                    printf("current gold:%2.1f\n",gold);
+                    printf("very well lets see what we can do for you\"\n");
+                    #include "allocate_stats.h"
+                    }
+
         }
         else if(strstr(temple_con,"alchemist")){
             printf("you are taken to one of the towers\n");
@@ -77,5 +87,9 @@
                         printf("ah well for now i don't have nothing else to talk with you\n");
                     break;
                 }
+        }
+        else{
+            printf("you leave the temple\n");
+            break;
         }
     }

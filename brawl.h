@@ -69,23 +69,35 @@
 	}while(e_hp_brawl >0 && hp_brawl>0);
 	if(e_hp_brawl<=0){
             	e_count +=1;
-            	gold += 100;
+            	if(rand()%6==0){
+            			bet = 200;
+					}
+                else if(rand()%7==0){
+            			bet = 400;
+					}
+                else if(rand()%11==0){
+            			bet = 700;
+					}
+                else{
+                    bet =100;
+                }
+                gold +=bet;
 				printf("the peasant falls unconscious!\n");
-            	printf("you gained %d gold from the bets against you (total gold %2.1f)\n",100,gold);
+            	printf("you gained %d gold from the bets against you (total gold %2.1f)\n",bet,gold);
             	printf("do you want to \"steal\" his gold too ?\n");
             	fgets(brawl_con,sizeof (brawl_con),stdin);
             	if(brawl_con[0]=='y' || brawl_con[0]=='Y' || strstr(brawl_con,"steal")){
             		printf("you search the unconscious commoner\n");
             		if(rand()%3==0){
-            			gold += 300;
-            			printf("you find %d gold(current gold %2.1f)\n",50,gold);
+            			gold += 200;
+            			printf("you find %d gold(current gold %2.1f)\n",200,gold);
 					}
             		else if(rand()%7==0){
-            			gold += 400;
-            			printf("you find %d gold(current gold %2.1f)\n",100,gold);
+            			gold += 300;
+            			printf("you find %d gold(current gold %2.1f)\n",300,gold);
 					}
             		else if(rand()%11==0){
-            			gold += 700;
+            			gold += 500;
             			printf("you find %d gold(current gold %2.1f)\n",500,gold);
 					}
 				}

@@ -26,7 +26,7 @@
 		Sleep(2000);
 		printf("lol...\njokes aside...\n");
 		printf("available classes for you:\n");
-		printf(" fighter\n thief\n mage\n enter your own class\n");
+		printf(" fighter\n thief\n mage\n sniper ranger\n");
 		fgets(player_class,sizeof (player_class),stdin);
 
 		if(strstr(player_class, "fighter")){
@@ -41,7 +41,7 @@
 			printf("your class is %s",player_class);
             break;
 		}
-		else{
+		else if(strstr(player_class, "sniper ranger")){
 			printf("your class is %s",player_class);
             break;
 		}
@@ -49,7 +49,7 @@
 	else if(player_age>=14 && player_age<28){
 		Sleep(1000);
 		printf("available classes for you:\n");
-		printf(" sentinel\n duelist\n crusader\n hexblade\n dragoon\n");
+		printf(" sentinel\n duelist\n crusader\n hexblade\n dragoon\n assassin\n bow & blade ranger\n");
 		fgets(player_class,sizeof (player_class),stdin);
 
 		if(strstr(player_class, "sentinel")){
@@ -72,13 +72,21 @@
 			printf("your class is %s",player_class);
             break;
 		}
+		else if(strstr(player_class, "assassin")){
+			printf("your class is %s",player_class);
+            break;
+		}
+		else if(strstr(player_class, "bow & blade ranger")){
+			printf("your class is %s",player_class);
+            break;
+		}
 		else
             printf("you didn't choose one of the available classes\n");
 	}
 	else if(player_age>=28 && player_age<42){
 		Sleep(1000);
 		printf("available classes for you:\n");
-		printf(" yojimbo\n warlord\n protagonist\n the inherent gift magician\n");
+		printf(" yojimbo\n warlord\n protagonist\n the inherent gift magician\n ninja\n the beast master ranger\n");
 		fgets(player_class,sizeof (player_class),stdin);
 
 		if(strstr(player_class, "yojimbo")){
@@ -97,13 +105,21 @@
 			printf("your class is %s",player_class);
             break;
 		}
+		else if(strstr(player_class, "ninja")){
+			printf("your class is %s",player_class);
+            break;
+		}
+		else if(strstr(player_class, "the beast master ranger")){
+			printf("your class is %s",player_class);
+            break;
+		}
 		else
             printf("you didn't choose one of the available classes\n");
 	}
 	else if(player_age>=42 && player_age<65){
 		Sleep(1000);
 		printf("available classes for you:\n");
-		printf(" theurgist\n conjurer\n the vancian magician\n red mage\n");
+		printf(" theurgist\n conjurer\n the vancian magician\n red mage\n the shadow\n");
 		fgets(player_class,sizeof (player_class),stdin);
 
 		if(strstr(player_class, "theurgist")){
@@ -122,13 +138,17 @@
 			printf("your class is %s",player_class);
             break;
 		}
+		else if(strstr(player_class, "the shadow")){
+			printf("your class is %s",player_class);
+            break;
+		}
 		else
             printf("you didn't choose one of the available classes\n");
 	}
 	else if(player_age>=65 && player_age<89){
 		Sleep(1000);
 		printf("available classes for you:\n");
-		printf(" blue mage\n necromancer\n nature magician\n druid\n");
+		printf(" blue mage\n necromancer\n nature magician\n druid\n the pirate\n");
 		fgets(player_class,sizeof (player_class),stdin);
 
 		if(strstr(player_class, "blue mage")){
@@ -144,6 +164,10 @@
 			break;
 		}
 		else if(strstr(player_class, "druid")){
+			printf("your class is %s",player_class);
+            break;
+		}
+		else if(strstr(player_class, "the pirate")){
 			printf("your class is %s",player_class);
             break;
 		}
@@ -174,4 +198,5 @@
             printf("you didn't choose one of the available classes\n");
 	}
 	}
+	printf("class does nothing for now, will be implemented hopefully\n");
 

@@ -42,7 +42,7 @@ int main(void)
     printf("you can chose to start a new game, load a previously started game, or exit\n");
 	Sleep(1500);
 	printf("you need to type something like \"start game\" or \"load game\"\n");
-	printf("NOTE:game uses stings cause they are easier and safer than numbers, if there isn't a number near an option you need to\nwrite down that option\n");
+	printf("NOTE:game uses strings cause they are easier and safer than numbers, if there isn't a number near an option you need to\nwrite down that option\n");
     printf("CREDITS: Thanks for testing it, really helps a lot\nYou can contribute in anyway you can\nYou can rip and rap the code\n");
     printf("and that's all i would say\n");
     fgets(menu_con, sizeof(menu_con), stdin);
@@ -60,13 +60,13 @@ int main(void)
 
     #include "intro.h"
 
-    #include "stats.h"
+    #include "stats_setup.h"
 
     #include "class_selection.h"
 
     #include "save.h"
 
-    //#include "encryption.h"
+    #include "encryption.h"
 
     LOAD:
     getchar();
@@ -136,6 +136,7 @@ int main(void)
 	#include "day_control.h"
     }
 	}
+	break;
 
 	case 'l':
 

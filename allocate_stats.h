@@ -5,23 +5,23 @@
 	printf("type \"allocate strenght 2\" or \"allocate dexterity 3\" i hope you get it lol\n");
 	fgets(stats_con,sizeof (stats_con),stdin);
 
-	if(strenght<5 && stats_con[9]=='s'){
+	if(strstr(stats_con,"allocate strenght ")){
 		#include "strenght_setup.h"
 		}
-	else if(dexterity<5 && stats_con[9]=='d' && stats_con[11]=='x'){
+	else if(strstr(stats_con,"allocate dexterity ")){
 		#include "dexterity_setup.h"
 	}
-	else if(intelligence <5 && stats_con[9]=='i'){
+	else if(strstr(stats_con,"allocate intelligence ")){
 		#include "intelligence_setup.h"
 	}
-	else if(luck<5 && stats_con[9]=='l'){
+	else if(strstr(stats_con,"allocate luck ")){
 		#include "luck_setup.h"
 		}
-	else if(charisma<5 && stats_con[9]=='c'){
+	else if(strstr(stats_con,"allocate charisma ")){
 		#include "charisma_setup.h"
 		}
 	else{
-		printf("you can't allocate more than 6 points for this stat\n");
+		printf("don't get what you mean sorry\n");
 	}
 	if(stats_count<0){
         printf("i'm sorry but i can't let that happen");

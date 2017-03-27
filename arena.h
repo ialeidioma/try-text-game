@@ -8,8 +8,8 @@
         scale_str=0.25*strenght;
         scale_int=0.25*intelligence;
 		e_hp=20*i;
-		dmg= 4.*j+armour_atck_up+wp_eq+scale_str;
-    	heal= 6.*j+scale_int;
+		dmg= 4.+armour_atck_up+wp_eq+scale_str;
+    	heal= 6.+scale_int;
     	heal_brawl = (int) heal;
 		e_dmg= 5.*i;
         printf("you encountered an enemy!\n");
@@ -174,7 +174,7 @@
 
             if(arena_con ==1 || arena_con==2){
 
-			if( rand()%3==0 || rand()%16==0 || rand()%10==0 || rand()%dexterity==0){
+			if( rand()%3==0 || rand()%16==0 || rand()%10==0 || rand()%17==0 || rand()%dexterity==0){
             	hp -= e_dmg-armour_eq;
                 printf("the enemy attacked you dealing %2.1f damage!(remaining player hp:%2.1f)\n",e_dmg-armour_eq,hp);
 			}
@@ -228,10 +228,10 @@
 			}
 		}
 
-		if(e_hp > 0)
+		if(e_hp > 0.)
 			printf("the enemy is still alive!\n");
 
-	}while(e_hp >0 && hp>0);
+	}while(e_hp >0. && hp>0.);
 
 		/*check if enemy is dead*/
 
@@ -246,11 +246,23 @@
 
 		    	if(xp >= xpo*xp_multi){
             		lv +=1;
-            		i +=0.5;
-            		j +=0.2;
-            		max_hp += 5*j;
+            		if(rand()%3==0){
+                        stats_count +=2;
+            		}
+            		else if(rand()%8==0){
+                        stats_count +=3;
+            		}
+            		else if(rand()%8==0 || rand()%11==0 || rand()%5==0){
+                        stats_count +=0;
+            		}
+            		else{
+                        stats_count +=1;
+            		}
+            		i +=0.25;
+            		max_hp += 5*scale_str;
             		xpo *= xp_multi;
 					printf("you gained a level!\n");
+					printf("you have %d stats!\n",stats_count);
             		printf("current xp=%2.1f next level xp=%2.1f\n",xp,xpo*xp_multi);
 					xp_multi += 0.25;
 				}

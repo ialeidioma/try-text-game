@@ -32,42 +32,28 @@
 
 				printf("do you wish to buy this armour ?\n");
 				printf("current gold:%2.1f",gold);
-				printf("enter 1 to buy else for no\n");
-				scanf("%d",&buy_con);
+				printf("enter yes to buy else for no\n");
+				fgets(buy_con,sizeof(buy_con),stdin);
 
-				/*check if it's a number otherwise sends to SHOP*/
-
-				fflush(stdout);
-  				if (fgets(buffer, sizeof buffer, stdin))
-	  			{
-    			long value;
-    			char *check;
-    			value = strtol(buffer, &check, 0);
-    			if (!isspace(*check) && *check != 0)
-    			{
-      			printf("sorry traveller, i don't get the meaning of %s\n",buffer);
-				}
-  				}
-
-  				if(buy_con==1 && strstr(shop_con,"leather jacket") && gold >= 900){
+  				if(strstr(buy_con,"yes") && strstr(shop_con,"leather jacket") && gold >= 900){
   					gold -=900;
 					armour_eq=3.;
 					armour_con=1;
  					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
-				else if(buy_con==1 && strstr(shop_con,"mail jacket") && gold >= 1200){
+				else if(strstr(buy_con,"yes") && strstr(shop_con,"mail jacket") && gold >= 1200){
 					gold -= 1200;
 					armour_eq=5.;
 					armour_con=2;
   					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
-				else if(buy_con==1 && strstr(shop_con,"trench coat") && gold >= 1350){
+				else if(strstr(buy_con,"yes") && strstr(shop_con,"trench coat") && gold >= 1350){
 					gold -= 1350;
 					armour_eq=1.;
 					armour_con=3;
 					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
-				else if(buy_con==1 && strstr(shop_con,"merc suit") && gold >= 1500){
+				else if(strstr(buy_con,"yes") && strstr(shop_con,"merc suit") && gold >= 1500){
 					gold -= 1500;
 					armour_eq=3.;
 					armour_atck_up=2.;
@@ -104,43 +90,29 @@
 
 				printf("do you wish to buy this weapon ?\n");
 				printf("current gold:%2.1f",gold);
-				printf("enter 1 to buy else for no\n");
-				scanf("%d",&buy_con);
+				printf("enter yes to buy else for no\n");
+				fgets(buy_con,sizeof(buy_con),stdin);
 
-				/*check if it's a number otherwise sends to SHOP*/
-
-				fflush(stdout);
-  				if (fgets(buffer, sizeof buffer, stdin))
-	  			{
-    			long value;
-    			char *check;
-    			value = strtol(buffer, &check, 0);
-    			if (!isspace(*check) && *check != 0)
-    			{
-      			printf("sorry traveller, i don't get the meaning of %s\n",buffer);
-				}
-  				}
-
-  				if(buy_con==1 && strstr(shop_con,"shortsword") && gold >= 950){
+  				if(strstr(buy_con,"yes") && strstr(shop_con,"shortsword") && gold >= 950){
   					gold -=950;
 					wp_eq=3.;
 					wp_con=1;
  					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 
 				}
-				else if(buy_con==1 && strstr(shop_con,"assassin blade") && gold >= 1150){
+				else if(strstr(buy_con,"yes") && strstr(shop_con,"assassin blade") && gold >= 1150){
 					gold -= 1150;
 					wp_eq=2.;
 					wp_con=2;
   					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
-				else if(buy_con==1 && strstr(shop_con,"gladius") && gold >= 1450){
+				else if(strstr(buy_con,"yes") && strstr(shop_con,"gladius") && gold >= 1450){
 					gold -= 1450;
 					wp_eq=2.5;
 					wp_con=3;
 					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
-				else if(buy_con==1 && strstr(shop_con,"greatsword") && gold >= 1500){
+				else if(strstr(buy_con,"yes") && strstr(shop_con,"greatsword") && gold >= 1500){
 					gold -= 1500;
 					wp_eq=5.;
 					wp_con=4;
@@ -173,40 +145,26 @@
 
 				printf("do you wish to buy this item ?\n");
 				printf("current gold:%2.1f",gold);
-				printf("enter 1 to buy else for no\n");
-				scanf("%d",&buy_con);
+				printf("enter yes to buy else for no\n");
+				fgets(buy_con,sizeof(buy_con),stdin);
 
-				/*check if it's a number otherwise sends to SHOP*/
-
-				fflush(stdout);
-  				if (fgets(buffer, sizeof buffer, stdin))
-	  			{
-    			long value;
-    			char *check;
-    			value = strtol(buffer, &check, 0);
-    			if (!isspace(*check) && *check != 0)
-    			{
-      			printf("sorry traveller, i don't get the meaning of %s\n",buffer);
-				}
-  				}
-
-  				if(buy_con==1 && strstr(shop_con,"small healing potion") && gold >= 25){
+  				if(strstr(buy_con,"yes") && strstr(shop_con,"small healing potion") && gold >= 25){
   					gold -=25;
 					s_p_con +=1;
  					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 
 				}
-				else if(buy_con==1 && strstr(shop_con,"large healing potion") && gold >= 50){
+				else if(strstr(buy_con,"yes") && strstr(shop_con,"large healing potion") && gold >= 50){
 					gold -= 50;
 					l_p_con += 1;
   					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
-				else if(buy_con==1 && strstr(shop_con,"roger's joke") && gold >= 300){
+				else if(strstr(buy_con,"yes") && strstr(shop_con,"roger's joke") && gold >= 300){
 					gold -= 300;
 					roger_con += 1;
 					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
-				else if(buy_con==1 && strstr(shop_con,"ciel's banhammer") && gold >= 1100){
+				else if(strstr(buy_con,"yes") && strstr(shop_con,"ciel's banhammer") && gold >= 1100){
 					gold -= 1100;
 					ban_con += 1;
 					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
@@ -214,6 +172,14 @@
 
 				else
 					printf("you can't afford it sorry or you didn't want to buy it XD\n");
+			}
+
+			else if(strstr(shop_con,"steal")){
+                printf("you unsheath your weapon\n");
+                printf("\"ok ok keep calm\n");
+                printf("what do you want ?\"\n");
+                printf("you hear the guards running to the shop...you have to leave the shop too bad\n");
+                break;
 			}
 
 			else if(strstr(shop_con,"exit shop")){
