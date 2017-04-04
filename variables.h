@@ -1,11 +1,11 @@
 	/*variables*/
 
-    int arena_con,e_count,arena_exit,bar_con,armour_con,wp_con,s_p_con,l_p_con,roger_con,ban_con,alcohol_con,player_age,a,day_con,quest_con,reward,board_con,rm,bet;
+    int e_count,armour_con,wp_con,s_p_con,l_p_con,roger_con,ban_con,alcohol_con,player_age,a,day_con,quest_con,reward,board_con,rm,bet;
 	int day_lenght,quest_conditions,hp_brawl,dmg_brawl,e_dmg_brawl,e_hp_brawl,max_hp_brawl,heal_brawl,strenght,luck,charisma,intelligence,dexterity,stats_count,scale_str,scale_int;
-	int gold_found;
-	double hp,e_hp,xp,lv,dmg,e_dmg,heal,xpo,xp_multi,max_hp,gold,armour_eq,armour_atck_up,wp_eq,i;
+	int gold_found,food_con,water_con,stamina_con;
+	double hp,e_hp,xp,lv,dmg,e_dmg,heal,xpo,xp_multi,max_hp,gold,armour_eq,armour_atck_up,wp_eq,i,p_xp_multi;
     char buffer[SIZE], player_name[SIZE],menu_con[SIZE],brawl_con[SIZE],stats_con[SIZE],player_class[SIZE],main_con[SIZE],temple_con[SIZE],shop_con[SIZE],buy_con[SIZE];
-    char dungeon_con[SIZE];
+    char dungeon_con[SIZE],arena_con[SIZE],bar_con[SIZE];
     char *file="try.bin";
     char encFile[200];
     char newencFile[200];
@@ -16,6 +16,7 @@
 
     srand(time(NULL));
     i=1.;
+    p_xp_multi=1.;
     hp=50.;
     xp=0.;
     xpo=6.;
@@ -47,3 +48,6 @@
     dexterity=1;
     max_hp_brawl=60;
     stats_count=10;
+    food_con=10;
+    water_con=10;
+    stamina_con=100;

@@ -1,19 +1,19 @@
 /*known issues:
-enemy attack random (unkown if it varies between how long it takes to enter the number)
+enemy attack random (unknown if it varies between how long it takes to enter the number)
 spelling needs to be checked (most times I write this program I'm too tired to do other stuff)
-unknow update issues (new implemented code needs to be checked)
+unknown update issues (new implemented code needs to be checked)
 
 New features to add:
-story inspired by dune, character development, spending points restore xp multiplayer, classses
-bar zone (some eroge, gambling,random bets,more than 1 enemy in brawl)
+story, character development, classes
+bar zone (some eroge, gambling,more than 1 enemy in brawl)
 possibility to steal items from shop (become outlaw ?)
 add survival stats (food, water, stamina...)(running low on one removes your health etc)
-dungeon zone (less enemies but stronger, chance to find item, complete quests)
-temple zone (learn skills, chance to get high difficulty quests, (saves???) )
-guild zone (quests, reputition, possibility to recruit party member(with enough reputition, higher rep higher stats))
-add more zones, items, npcs for party, quests, monters etc
+dungeon zone (complete quests)
+temple zone (learn skills, chance to get high difficulty quests)
+guild zone (quests, reputation, possibility to recruit party member(with enough reputation, higher rep higher stats))
+add more zones, items, npcs for party, quests, monsters etc
 (add a plot, need someone to make a story but player not forced to play the story)
-(events happen while player is out ??? such as no items in shop, no quests)
+(events happen while player is out ??? such as no items in shop)
 
 It will be a lot of work already, most of things I can already do them, others I need to search*/
 
@@ -136,15 +136,30 @@ int main(void)
 	#include "day_control.h"
     }
 	}
+	if(water_con<=0 || food_con<=0){
+        if(food_con<=0){
+            hp -=10;
+            printf("you are starving, you lose %d hp (current hp:%2.1f)\n",10,hp);
+        }
+        if(water_con<=0){
+            hp -=10;
+            printf("you are thirsty, you lose %d hp (current hp:2.1f)\n",10,hp);
+        }
+	}
 	break;
 
 	case 'l':
 
 		#include "loading.h"
 
+    case 'e':
+        printf("Cyaaa!\n");
+        return 0;
+    case 'b':
+        #include "patron.h"
+        break;
 	default:
 		printf("you didn't enter one of the above\n");
-		break;
 }
 }
 }

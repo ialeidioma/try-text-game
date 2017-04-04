@@ -13,7 +13,7 @@
 		printf("everyone in the bar starts to laugh at you...maybe you should have turned him down...\n");
 		//lose reputation when implemented
 		//add a "personality" system ?
-		goto BAR;
+		break;
 	}
 
 	/*grammatical errors intentional here since you are drunk*/
@@ -107,7 +107,7 @@
 				printf("you head to the counter\n");
 				printf("\"this is for the mess\"\n");
 				printf("you hand over %d gold (current gold:%2.1f)",80,gold);
-				goto BAR;
+				break;
 	}
 	if(hp_brawl<=0){
 		system("color f1");

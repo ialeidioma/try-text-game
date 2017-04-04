@@ -226,7 +226,7 @@
 		if(e_hp<=0){
             	gold += 20+e_count*i;
 				printf("you killed an enemy!GJ\n");
-            	printf("you gained %2.1f xp and %2.1f of gold(current xp=%2.1f)\n",3*i,20+e_count*i,xp += 3*i);
+            	printf("you gained %2.1f xp and %2.1f of gold(current xp=%2.1f)\n",3*i,20+e_count*i,xp += 3*p_xp_multi);
             	printf("your current gold %2.1f\n",gold);
 
 		    	/*check if lv up */
@@ -246,6 +246,7 @@
                         stats_count +=1;
             		}
             		i +=0.25;
+            		p_xp_multi += 0.2;
             		max_hp += 5*scale_str;
             		xpo *= xp_multi;
 					printf("you gained a level!\n");

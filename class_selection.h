@@ -183,12 +183,15 @@
 
 		if(strstr(player_class, "white mage")){
 			printf("your class is %s",player_class);
+			break;
 		}
 		else if(strstr(player_class, "witch doctor")){
 			printf("your class is %s",player_class);
+            break;
 		}
 		else if(strstr(player_class, "inquisitor")){
 			printf("your class is %s",player_class);
+            break;
 		}
 		else if(strstr(player_class, "the magical ranger")){
 			printf("your class is %s",player_class);

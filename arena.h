@@ -16,28 +16,12 @@
         do {
         	ARENA:
         	Sleep(1000);
-        	printf("decide to attack (1) or flee (0) or use your items (2) or heal(any other number):\n");
-        	scanf("%d",&arena_con);
-
-			/*check if number*/
-
-			fflush(stdout);
-  			if (fgets(buffer, sizeof buffer, stdin))
-  			{
-    		long value;
-    		char *check;
-
-    		value = strtol(buffer, &check, 0);
-    		if (!isspace(*check) && *check != 0)
-    		{
-      		printf("you didn't enter a number! Dumbass!\n");
-    		break;
-			}
-  		    }
+        	printf("decide to attack or flee or use your items or heal:\n");
+        	fgets(arena_con, sizeof (arena_con), stdin);
 
 		  /*attack option*/
 
-			if(arena_con==1){
+			if(strstr(arena_con,"attack")){
 
 				/*check wp equipped*/
 
@@ -72,7 +56,7 @@
 
 			/*flee option*/
 
-			else if (arena_con==0){
+			else if (strstr(arena_con,"flee")){
                 printf("coward! You can't run forever\n");
 
                 /*enemy attack while attempting to flee*/
@@ -87,7 +71,7 @@
 
             /*items option*/
 
-            else if(arena_con==2){
+            else if(strstr(arena_con,"items") || strstr(arena_con,"item")){
 
             	/*check if player has iterms*/
 
@@ -160,7 +144,7 @@
 			//will probably add more options in the future
 			/*heal option*/
 
-			else{
+			else if(strstr(arena_con,"heal")){
             	hp += heal;
             	if(hp<=max_hp)
 					printf("you healed yourself of %2.1f hp, keep up the fight,(hp=%2.1f)\n",heal,hp);
@@ -172,7 +156,7 @@
 
             /*enemy attack*/
 
-            if(arena_con ==1 || arena_con==2){
+            if(strstr(arena_con,"attack") || strstr(arena_con,"items") || strstr(arena_con,"item")){
 
 			if( rand()%3==0 || rand()%16==0 || rand()%10==0 || rand()%17==0 || rand()%dexterity==0){
             	hp -= e_dmg-armour_eq;
@@ -181,7 +165,7 @@
 			else
 				printf("the enemy missed! lucky!\n");
             }
-            else if(arena_con!=1 && arena_con!= 2 && arena_con!= 0){
+            else{
 
  			if( (rand()%3==0 || rand()%16==0 || rand()%10==0 || rand()%dexterity==0) && rand()%luck==0){
             	hp -= e_dmg-armour_eq;
@@ -239,7 +223,7 @@
             	e_count++;
             	gold += 20+e_count*i;
 				printf("you killed an enemy!GJ\n");
-            	printf("you gained %2.1f xp and %2.1f of gold(current xp=%2.1f)\n",3*i,20+e_count*i,xp += 3*i);
+            	printf("you gained %2.1f xp and %2.1f of gold(current xp=%2.1f)\n",3*i,20+e_count*i,xp += 3*p_xp_multi);
             	printf("your current gold %2.1f\n",gold);
 
 		    	/*check if lv up */
@@ -259,6 +243,7 @@
                         stats_count +=1;
             		}
             		i +=0.25;
+            		p_xp_multi += 0.2;
             		max_hp += 5*scale_str;
             		xpo *= xp_multi;
 					printf("you gained a level!\n");
@@ -274,25 +259,10 @@
 				printf("You've defeated %d enemies!\n",e_count);
 				printf("prize for defeating %d enemies is %d gold!\n",e_count, 40*e_count);
 				printf("do you wish to exit the arena ?\n");
-				printf("enter 1 for yes, anything else for no\n");
-				e_count=0;
-				scanf("%d",&arena_exit);
+				printf("enter yes or no\n");
+				fgets(arena_con, sizeof (arena_con), stdin);
 
-				/*check if it's a number*/
-
-				fflush(stdout);
-  				if (fgets(buffer, sizeof buffer, stdin))
-	  			{
-    			long value;
-    			char *check;
-    			value = strtol(buffer, &check, 0);
-    			if (!isspace(*check) && *check != 0)
-    			{
-      			printf("you didn't enter a number! You go to the map!\n");
-    			break;
-				}
-  				}
-				if(arena_exit==1)
+				if(strstr(arena_con,"yes") || strstr(arena_con,"Yes"))
 					break;
 				else
 					printf("ah well I hope you survive...\n");

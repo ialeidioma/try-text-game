@@ -1,4 +1,5 @@
 /*temple*/
+    if(day_con){
     printf("you arrive at the temple\n");
     printf("you ring the bell\n\a");
     Sleep(2000);
@@ -24,6 +25,7 @@
                     printf("current gold:%2.1f\n",gold);
                     printf("very well lets see what we can do for you\"\n");
                     #include "allocate_stats.h"
+                    p_xp_multi = 1.;
                     }
 
         }
@@ -93,3 +95,6 @@
             break;
         }
     }
+    }
+    else
+        printf("the temple is closed during night...\n");

@@ -1,40 +1,19 @@
     		/*bar*/
-    		if(day_con==0){
 			printf("you enter the bar\n");
-    		BAR:
+    		for(;;){
     		printf("where do you want to head ?\n");
-    		printf(" 1:adventurers' table\n 2:counter\n 3:girls' table\n 4:notice-board\n 5:receptionist\n 6:empty table\n 7:exit bar\n");
-			printf("enter either 1,2,3,4,5 or 6\n");
-			scanf("%d",&bar_con);
-
-    		/*check if it's a number otherwise sends to BAR*/
-
-		fflush(stdout);
-  		if (fgets(buffer, sizeof buffer, stdin))
-	  	{
-    		long value;
-    		char *check;
-    		value = strtol(buffer, &check, 0);
-    		if (!isspace(*check) && *check != 0)
-    		{
-      		printf("people start to eye you weirdly, well you are the weird one who stands in the door!\n");
-    		goto BAR;
-			}
-  		}
-
-		/*main bar switch*/
-
-		switch(bar_con){
+    		printf(" adventurers' table\n counter\n girls' table\n notice-board\n receptionist\n empty table\n exit bar\n");
+			fgets(bar_con,sizeof(bar_con),stdin);
 
 			/*adventurers' table*/
 
-			case 1:
+			if(strstr(bar_con,"adventurers' table")){
 				printf("not implemented need guild system before\n");
-				goto BAR;
+			}
 
 			/*counter*/
-
-			case 2:
+			else if(strstr(bar_con,"counter")){
+			    if(day_con==0){
 				printf("the barman greets you\n");
 				printf("hello lad!\n");
 				for(;;){
@@ -68,7 +47,7 @@
 				}
 				else{
 					printf("you don't have the money or you didn't enter one of the drinks :/\n");
-					goto BAR;
+					break;
 				}
 				if(alcohol_con>=14 && alcohol_con<=20){
 					if(rand()%12==0){
@@ -94,17 +73,20 @@
 						#include "brawl.h"
 				}
 				}
-
-
+            }
+            else{
+                printf("\"we don't server alcohol while the sun is still high\"\n");
+            }
+			}
 			/*girls'table*/
 
-			case 3:
+			else if(strstr(bar_con,"girls' table")){
 				printf("not implemented need guild system\n");
-				goto BAR;
+			}
 
 			/*notice-board*/
 
-			case 4:
+			else if(strstr(bar_con,"notice-board")){
 				printf("you head toward the notice-board...\n");
 				if(board_con==0){
 				board_con=1;
@@ -137,29 +119,28 @@
 					board_con=0;
 					quest_con=0;
 					printf("no quests available right now...bad luck i guess\n");
-					goto BAR;
 				}
+				if(board_con!=0){
 				printf("do you want to accept this quest ?\n");
 				fgets(buffer,sizeof (buffer),stdin);
 
 				if(buffer[0]=='y' || buffer[0]=='Y'){
 					printf("you accepted the quest,when you complete it go to the receptionist...if you complete it :P\n");
-					goto BAR;
 				}
 				else{
 					printf("you didn't accept the quest...\n");
 					quest_con=0;
-					goto BAR;
+				}
 				}
 				}
 				else{
-					printf("you already checked the notice-board for this evening\n");
+					printf("you already checked the notice-board try later!\n");
 					printf("there are many other things to do!\n");
-					goto BAR;
 				}
+			}
 
 			/*receptionist*/
-			case 5:
+            else if(strstr(bar_con,"receptionist")){
 				printf("a nice looking girl sits behind a counter\n");
 				if(quest_con!=0 && quest_conditions==e_count){
 					gold += reward;
@@ -167,32 +148,85 @@
 					e_count=0;
 					printf("she greets you\n");
 					printf("\"here's your reward for the quest!\"(current gold:%2.1f)\n",gold);
-					goto BAR;
 				}
 				else{
 					printf("she glances at you...\n");
 					printf("please first accept a quest from the notice-board and complete it!\n");
-					goto BAR;
 				}
-
+            }
 			/*empty table*/
 
-			case 6:
-				printf("not implemented\n");
-				goto BAR;
+			else if(strstr(bar_con,"empty table")){
+				printf("you take a seat at the table\n");
+				printf("a young maid comes closer");
+				printf("\"what would you like to order sir ?\"\n");
+				printf(" order food\n order water\n order food & water\n");
+				fgets(buffer,sizeof(buffer),stdin);
+                if(strstr(buffer,"order food") && gold>=23){
+                    food_con +=1;
+                    gold -=23;
+                    printf("\"alright i'll come back shortly\"\n");
+                    Sleep(1500);
+                    printf("\"here's your meal!\"\n");
+                    printf("you hand over %d gold pieces to pay for the food\n",23);
+                    printf("wanna tip the girl ?(lenny)\n");
+                    if((strstr(buffer,"yes") || strstr(buffer,"Yes")) && gold>=8){
+                        gold -=8;
+                        printf("\"and this is for the service\" you say\n (gold tip: %d",8);
+                    }
+                    else{
+                        printf("you didn't tip the maid too bad lol\n");
+                    }
+                    printf(" current gold:%f\n food:%d\n water:%d\n",gold,food_con,water_con);
+                    }
+                else if(strstr(buffer,"order water") && gold>=13){
+                    water_con +=1;
+                    gold -=13;
+                    printf("\"alright i'll come back shortly\"\n");
+                    Sleep(1500);
+                    printf("\"here's your bottle!\"\n");
+                    printf("you hand over %d gold pieces to pay for the water\n",13);
+                    printf("wanna tip the girl ?(lenny)\n");
+                    if((strstr(buffer,"yes") || strstr(buffer,"Yes")) && gold>=5){
+                        gold -=5;
+                        printf("\"and this is for the service\" you say\n (gold tip: %d",5);
+                    }
+                    else{
+                        printf("you didn't tip the maid too bad lol\n");
+                    }
+                    printf(" current gold:%f\n food:%d\n water:%d\n",gold,food_con,water_con);
+                    }
+                else if(strstr(buffer,"order food & water") && gold>=30){
+                    food_con +=1;
+                    water_con +=1;
+                    gold -=30;
+                    printf("\"alright i'll come back shortly\"\n");
+                    Sleep(1500);
+                    printf("\"here's you are!\"\n");
+                    printf("you hand over %d gold pieces to pay for the meal\n",30);
+                    printf("wanna tip the girl ?(lenny)\n");
+                    if((strstr(buffer,"yes") || strstr(buffer,"Yes")) && gold>=12){
+                        gold -=12;
+                        printf("\"and this is for the service\" you say\n (gold tip: %d",12);
+                    }
+                    else{
+                        printf("you didn't tip the maid too bad lol\n");
+                    }
+                    printf(" current gold:%f\n food:%d\n water:%d\n",gold,food_con,water_con);
+                    }
+                else
+                    printf("you didn't order anything or you don't have enough gold\n");
+			}
 
 			/*exit bar*/
 
-			case 7:
+			else if(strstr(bar_con,"exit bar")){
 				printf("you leave the bar\n");
 				break;
+			}
 
 			/*player didn't enter one of the previous cases*/
 
-			default :
+			else
         	printf("don't be a pain in the ass! enter one of those numbers!\n");
-        	goto BAR;
 		}
-	}
-	else
-		printf("the bar is closed during day...\n");

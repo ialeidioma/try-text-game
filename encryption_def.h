@@ -3,7 +3,6 @@
 
 void Encrypt(char * FILENAME, char * NEW_FILENAME)
 {
-		 //printf("Loaded Encrypt
 
 		 FILE *inFile;		 		 		 		 		 //Declare inFile
 		 FILE *outFile;		 		 		 		 		 //Declare outFile
@@ -35,7 +34,6 @@ void Encrypt(char * FILENAME, char * NEW_FILENAME)
 		 		 		 if(Byte!=EOF)
 		 		 		 {
 		 		 		 		 Byte=fgetc(inFile);
-		 		 		 //		 printf("%d",Byte);
 		 		 		 		 newByte=Byte+25;
 
 		 		 		 		 fputc(newByte,outFile);
@@ -57,7 +55,6 @@ void Encrypt(char * FILENAME, char * NEW_FILENAME)
 
 void Decrypt (char *FILENAME, char *NEW_FILENAME)
 {
-		 //printf("Loaded Decrypt
 
 		 FILE *inFile;		 		 		 		 		 //Declare inFile
 		 FILE *outFile;		 		 		 		 		 //Declare outFile
@@ -87,7 +84,6 @@ void Decrypt (char *FILENAME, char *NEW_FILENAME)
 		 		 		 if(Byte!=EOF)
 		 		 		 {
 		 		 		 		 Byte=fgetc(inFile);
-		 		 		 //		 printf("%d",Byte);
 		 		 		 		 newByte=Byte-25;
 
 		 		 		 		 fputc(newByte,outFile);

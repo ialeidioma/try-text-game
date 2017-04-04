@@ -175,10 +175,10 @@
 			}
 
 			else if(strstr(shop_con,"steal")){
-                printf("you unsheath your weapon\n");
-                printf("\"ok ok keep calm\n");
-                printf("what do you want ?\"\n");
-                printf("you hear the guards running to the shop...you have to leave the shop too bad\n");
+                printf("you unsheathe your weapon\n");
+                printf("\"ok ok keep calm\"\n");
+                printf("what do you want to do ?\n");
+                printf(" steal weapon\n steal armour\n steal item\n steal gold\n");
                 break;
 			}
 
