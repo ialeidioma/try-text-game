@@ -6,4 +6,5 @@ fprintf(fp,"%d\n%d\n%d\n%d\n%d\n",strenght,dexterity,intelligence,luck,charisma)
 fprintf(fp,"%f\n%f\n%f\n%f\n",i,xp,xpo,lv);
 fprintf(fp,"%f\n%f\n%f\n%f\n%f\n%d\n",xp_multi,max_hp,hp,gold,armour_eq,armour_con);
 fprintf(fp,"%f\n%f\n%d\n%d\n",armour_atck_up,wp_eq,wp_con,stats_count);
+fprintf(fp,"%d\n%d\n%d\n%d\n",food_con,water_con,stamina_con,craft_table);
 fclose(fp);

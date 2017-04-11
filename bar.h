@@ -118,7 +118,7 @@
 				else{
 					board_con=0;
 					quest_con=0;
-					printf("no quests available right now...bad luck i guess\n");
+					printf("someone took all the quest lol\n");
 				}
 				if(board_con!=0){
 				printf("do you want to accept this quest ?\n");
@@ -160,7 +160,7 @@
 				printf("you take a seat at the table\n");
 				printf("a young maid comes closer");
 				printf("\"what would you like to order sir ?\"\n");
-				printf(" order food\n order water\n order food & water\n");
+				printf(" order food\n order water\n order full meal\n");
 				fgets(buffer,sizeof(buffer),stdin);
                 if(strstr(buffer,"order food") && gold>=23){
                     food_con +=1;
@@ -170,6 +170,7 @@
                     printf("\"here's your meal!\"\n");
                     printf("you hand over %d gold pieces to pay for the food\n",23);
                     printf("wanna tip the girl ?(lenny)\n");
+                    fgets(buffer,sizeof(buffer),stdin);
                     if((strstr(buffer,"yes") || strstr(buffer,"Yes")) && gold>=8){
                         gold -=8;
                         printf("\"and this is for the service\" you say\n (gold tip: %d",8);
@@ -187,6 +188,7 @@
                     printf("\"here's your bottle!\"\n");
                     printf("you hand over %d gold pieces to pay for the water\n",13);
                     printf("wanna tip the girl ?(lenny)\n");
+                    fgets(buffer,sizeof(buffer),stdin);
                     if((strstr(buffer,"yes") || strstr(buffer,"Yes")) && gold>=5){
                         gold -=5;
                         printf("\"and this is for the service\" you say\n (gold tip: %d",5);
@@ -196,7 +198,7 @@
                     }
                     printf(" current gold:%f\n food:%d\n water:%d\n",gold,food_con,water_con);
                     }
-                else if(strstr(buffer,"order food & water") && gold>=30){
+                else if(strstr(buffer,"order full meal") && gold>=30){
                     food_con +=1;
                     water_con +=1;
                     gold -=30;
@@ -204,6 +206,7 @@
                     Sleep(1500);
                     printf("\"here's you are!\"\n");
                     printf("you hand over %d gold pieces to pay for the meal\n",30);
+                    fgets(buffer,sizeof(buffer),stdin);
                     printf("wanna tip the girl ?(lenny)\n");
                     if((strstr(buffer,"yes") || strstr(buffer,"Yes")) && gold>=12){
                         gold -=12;

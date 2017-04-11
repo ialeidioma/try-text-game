@@ -35,7 +35,7 @@
         	Sleep(1000);
         	printf("decide to attack or flee or heal:\n");
         	fgets(brawl_con,sizeof (brawl_con),stdin);
-        	if(brawl_con[0]=='a'){
+        	if(strstr(brawl_con,"attack")){
         		if( rand()%3==0 || rand()%7==0 || rand()%11==0){
         		e_hp_brawl -=dmg_brawl;
         		printf("you attacked the enemy, causing %d dmg (remaing enemy hp=%d)\n",dmg_brawl,e_hp_brawl);
@@ -43,10 +43,10 @@
 				else
 					printf("you are so drunk that you missed the commoner\nlol\n");
 			}
-			else if(brawl_con[0]=='f'){
+			else if(strstr(brawl_con,"flee")){
 				printf("\"look who's running\"\n");
 			}
-			else if(brawl_con[0]=='h'){
+			else if(strstr(brawl_con,"heal")){
 				hp_brawl += heal;
             	if(hp_brawl<=max_hp)
 					printf("you healed yourself of %d hp, keep up the fight,(hp=%d)\n",heal_brawl,hp_brawl);

@@ -1,5 +1,4 @@
 /*known issues:
-enemy attack random (unknown if it varies between how long it takes to enter the number)
 spelling needs to be checked (most times I write this program I'm too tired to do other stuff)
 unknown update issues (new implemented code needs to be checked)
 
@@ -7,7 +6,7 @@ New features to add:
 story, character development, classes
 bar zone (some eroge, gambling,more than 1 enemy in brawl)
 possibility to steal items from shop (become outlaw ?)
-add survival stats (food, water, stamina...)(running low on one removes your health etc)
+add survival stats ( stamina...)(running low on one removes your health etc)
 dungeon zone (complete quests)
 temple zone (learn skills, chance to get high difficulty quests)
 guild zone (quests, reputation, possibility to recruit party member(with enough reputation, higher rep higher stats))
@@ -41,7 +40,7 @@ int main(void)
     Sleep(500);
     printf("you can chose to start a new game, load a previously started game, or exit\n");
 	Sleep(1500);
-	printf("you need to type something like \"start game\" or \"load game\"\n");
+	printf("you need to type something like \"start game\" or \"load game\" hope you get it\n");
 	printf("NOTE:game uses strings cause they are easier and safer than numbers, if there isn't a number near an option you need to\nwrite down that option\n");
     printf("CREDITS: Thanks for testing it, really helps a lot\nYou can contribute in anyway you can\nYou can rip and rap the code\n");
     printf("and that's all i would say\n");
@@ -69,13 +68,12 @@ int main(void)
     #include "encryption.h"
 
     LOAD:
-    getchar();
     system("cls");
     for(;;){
     clock_t begin = clock();
     Sleep(500);
 	printf("decide where to go\n");
-	printf(" shop\n arena\n dungeon\n bar\n temple\n exit game\n");
+	printf(" shop\n arena\n dungeon\n bar\n temple\n status\n go home\n exit game\n");
 	printf("enter the name of the thing\n");
 	fgets(main_con,sizeof (main_con),stdin);
 
@@ -112,7 +110,18 @@ int main(void)
         #include "temple.h"
 	}
 
-		//will probably add more cases here
+	else if(strstr(main_con,"status")){
+        printf("your name is %syour age is %d\n",player_name,player_age);
+        printf("your class is %s",player_class);
+        printf("your current stats are:\n strenght:%d\n luck:%d\n charisma:%d\n intelligence:%d\n dexterity:%d\n",strenght,luck,charisma,intelligence,dexterity);
+        printf(" xp:%2.1f\n lv:%2.1f\n hp:%2.1f\n gold:%2.1f\n",xp,lv,hp,gold);
+        printf(" hunger meter: %d\n water meter: %d\n",food_con,water_con);
+	}
+
+	else if(strstr(main_con,"go home")){
+        #include "home.h"
+	}
+		//will probably add more options here
         /*exit game*/
 
 	else if(strstr(main_con,"exit game")){
@@ -132,7 +141,7 @@ int main(void)
 
 	/*day control*/
 
-    if(main_con[0]!='s'){
+    if(main_con[0]!='s' || home_con[0]!='r'){
 	#include "day_control.h"
     }
 	}

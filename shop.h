@@ -15,7 +15,7 @@
 				printf("ah well we don't have many armours...\n");
 				printf("but if you get me some items I could manage to make you something special, for the right price obviously\n");
 				printf("current available armours:\n");
-				printf(" 1:leather jacket\n 2:mail jacket\n 3:trench coat\n 4:merc suit\n");
+				printf(" leather jacket\n mail jacket\n trench coat\n merc suit\n");
 				fgets(shop_con,sizeof(shop_con),stdin);
 
   				if(strstr(shop_con,"leather jacket"))
@@ -128,7 +128,7 @@
 			else if(strstr(shop_con,"items")){
 				printf("ah well we don't have many items...\n");
 				printf("current available items:\n");
-				printf(" 1:small healing potion\n 2:large healing potion\n 3:roger's joke\n 4:ciel's banhammer\n");
+				printf(" small healing potion\n large healing potion\n roger's joke\n ciel's banhammer\n crafting table\n");
 				fgets(shop_con,sizeof(shop_con),stdin);
 
   				if(strstr(shop_con,"small healing potion"))
@@ -139,6 +139,9 @@
 					printf("the roger's joke has a small chance of making the enemy lose a turn it costs 300 gold pieces\n");
 				else if(strstr(shop_con,"ciel's banhammer"))
 					printf("the ciel's banhammer offers high chance of obliterating an enemy, it's a pretty rare item so it costs 1100 gold pieces\n");
+				else if(strstr(shop_con,"crafting table")){
+                    printf("it will allow you to craft things...for now it has no real use since there isn't a crafting system\n");
+				}
 				else{
 					printf("since you want to do smartass...you go back to the shop!\n");
 				}
@@ -169,6 +172,11 @@
 					ban_con += 1;
 					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
+				else if(strstr(buy_con,"yes") && strstr(shop_con,"crafting table") && gold >= 1500){
+					gold -= 1500;
+					craft_table =1;
+					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
+				}
 
 				else
 					printf("you can't afford it sorry or you didn't want to buy it XD\n");
@@ -179,7 +187,44 @@
                 printf("\"ok ok keep calm\"\n");
                 printf("what do you want to do ?\n");
                 printf(" steal weapon\n steal armour\n steal item\n steal gold\n");
-                break;
+                fgets(shop_con,sizeof(shop_con),stdin);
+                #include "shop_fight.h"
+                if(strstr(shop_con,"steal weapon")){
+                        printf("you steal the gladius");
+                        wp_eq=2.5;
+                        wp_con=3;
+                }
+                else if(strstr(shop_con,"steal armour")){
+                        printf("you steal the leather jacket");
+                        armour_eq=3.;
+                        armour_con=1;
+                }
+                else if(strstr(shop_con,"steal item")){
+                        printf("you steal the ciel's banhammer");
+                        ban_con += 4;
+                }
+                else if(strstr(shop_con,"steal gold")){
+                        if(rand()%3==0){
+                            shop_gold =3000;
+                            gold += shop_gold;
+                        }
+                        else if(rand()%6==0){
+                            shop_gold =4000;
+                            gold += shop_gold;
+                        }
+                        else if(rand()%12==0){
+                            shop_gold =5000;
+                            gold += shop_gold;
+                        }
+                        else{
+                            shop_gold=2000;
+                            gold +=shop_gold;
+                        }
+                        printf("you steal %d gold (current gold:%2.1f)\n",shop_gold,gold);
+                }
+                else{
+                    printf("your damn fault for not putting one of those cases lol\n");
+                }
 			}
 
 			else if(strstr(shop_con,"exit shop")){

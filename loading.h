@@ -13,6 +13,7 @@
 			fscanf(fp,"%lf\n%lf\n%lf\n%lf\n",&i,&xp,&xpo,&lv);
             fscanf(fp,"%lf\n%lf\n%lf\n%lf\n%lf\n%d\n",&xp_multi,&max_hp,&hp,&gold,&armour_eq,&armour_con);
             fscanf(fp,"%lf\n%lf\n%d\n%d\n",&armour_atck_up,&wp_eq,&wp_con,&stats_count);
+            fscanf(fp,"%d\n%d\n%d\n%d\n",&food_con,&water_con,&stamina_con,&craft_table);
 			fclose(fp);
 			printf("your name is %syour age is %d\n",player_name,player_age);
 			printf("your class is %s",player_class);

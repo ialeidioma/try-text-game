@@ -135,12 +135,6 @@
                         }
                         printf("ayy! you found %d gold (current gold:%2.1f)\n",gold_found,gold);
                     }
-                    else if(rand()%8==0 && rand()%luck==0){
-                        printf("you got lost!\n");
-                        printf("you panic and start running!\n");
-                        printf("you've probably lost some really good loot around here lol\n");
-                    }
-
                 }
                 else if(strstr(dungeon_con,"exit dungeon")){
                         printf("you leave the dungeon\n");

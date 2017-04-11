@@ -2,26 +2,24 @@
 		/*combat system*/
 
 		while(hp > 0){
-        e_count=0;
         scale_str=0.25*strenght;
         scale_int=0.25*intelligence;
-		e_hp=80*i;
+		e_hp=100*i;
 		dmg= 4.+armour_atck_up+wp_eq+scale_str;
     	heal= 6.+scale_int;
     	heal_brawl = (int) heal;
-		e_dmg= 7.*i;
-        printf("you encountered an enemy!\n");
-        printf("prepare to fight!\n");
+		e_dmg= 12.*i;
+        printf("\"we shall see about that\"\n");
         for(;;){
         do {
         	Sleep(1000);
         	printf("decide to attack or flee or use your item or heal\n");
-        	fgets(dungeon_con,sizeof(dungeon_con),stdin);
+        	fgets(shop_fight_con,sizeof(shop_fight_con),stdin);
 
 
 		  /*attack option*/
 
-			if(strstr(dungeon_con,"attack")){
+			if(strstr(shop_fight_con,"attack")){
 
 				/*check wp equipped*/
 
@@ -32,46 +30,46 @@
 					if(rand()%8==0){
 						e_hp -=dmg;
 						printf("critical hit!\n");
-						printf("you attacked the enemy, causing %2.1f dmg (remaing enemy hp=%2.1f)\n",2*dmg,e_hp);
+						printf("you attacked the shopkeeper, causing %2.1f dmg (remaing shopkeeper hp=%2.1f)\n",2*dmg,e_hp);
 						break;
 					}
-					printf("you attacked the enemy, causing %2.1f dmg (remaing enemy hp=%2.1f)\n",dmg,e_hp);
+					printf("you attacked the shopkeeper, causing %2.1f dmg (remaing shopkeeper hp=%2.1f)\n",dmg,e_hp);
 					break;
 
 					case 3:
                 	e_hp -=dmg;
 					if(rand()%16==0){
 						e_hp =0.;
-						printf("enemy executed!!\n");
+						printf("shopkeeper executed!!\n");
 						break;
 					}
-					printf("you attacked the enemy, causing %2.1f dmg (remaing enemy hp=%2.1f)\n",dmg,e_hp);
+					printf("you attacked the shopkeeper, causing %2.1f dmg (remaing shopkeeper hp=%2.1f)\n",dmg,e_hp);
 					break;
 
 					default:
 						e_hp -=dmg;
-            			printf("you attacked the enemy, causing %2.1f dmg (remaing enemy hp=%2.1f)\n",dmg,e_hp);
+            			printf("you attacked the shopkeeper, causing %2.1f dmg (remaing shopkeeper hp=%2.1f)\n",dmg,e_hp);
 				}
             }
 
 			/*flee option*/
 
-			else if(strstr(dungeon_con,"flee")){
+			else if(strstr(shop_fight_con,"flee")){
                 printf("coward! You can't run forever\n");
 
-                /*enemy attack while attempting to flee*/
+                /*shopkeeper attack while attempting to flee*/
 
                 if(rand()%3==0 || rand()%2==0){
             	hp -= 2*e_dmg-armour_eq;
-                printf("the enemy attacked you while attemping to flee! causing %2.1f (remaining player hp:%2.1f)\n",2*e_dmg,hp);
+                printf("the shopkeeper attacked you while attemping to flee! causing %2.1f (remaining player hp:%2.1f)\n",2*e_dmg,hp);
 			}
 				else
-					printf("the enemy followed you!\n");
+					printf("the shopkeeper followed you!\n");
             }
 
             /*items option*/
 
-            else if(strstr(dungeon_con,"item") || strstr(dungeon_con,"items")){
+            else if(strstr(shop_fight_con,"item") || strstr(shop_fight_con,"items")){
 
             	/*check if player has iterms*/
 
@@ -118,11 +116,11 @@
 					else if(buffer[0]=='r' && buffer[7]==' ' && roger_con>0){
 						roger_con -=1;
 						if( rand()%5==0){
-						printf("you managed to fool the enemy!\n");
+						printf("you managed to fool the shopkeeper!\n");
 						break;
 						}
 					else
-						printf("the enemy looks at you sadly...\n");
+						printf("the shopkeeper looks at you sadly...\n");
 					}
 					/*ciel ban*/
 					else if(buffer[0]=='c' && buffer[6]==' ' && ban_con>0){
@@ -144,7 +142,7 @@
 			//will probably add more options in the future
 			/*heal option*/
 
-			else if(strstr(dungeon_con,"heal")){
+			else if(strstr(shop_fight_con,"heal")){
             	hp += heal;
             	if(hp<=max_hp)
 					printf("you healed yourself of %2.1f hp, keep up the fight,(hp=%2.1f)\n",heal,hp);
@@ -157,25 +155,25 @@
                 printf("you didn't enter one of the cases\n");
             }
 
-            /*enemy attack*/
+            /*shopkeeper attack*/
 
-            if(strstr(dungeon_con,"attack") || strstr(dungeon_con,"item") || strstr(dungeon_con,"items")){
+            if(strstr(shop_fight_con,"attack") || strstr(shop_fight_con,"item") || strstr(shop_fight_con,"items")){
 
 			if( rand()%3==0 || rand()%16==0 || rand()%10==0 || rand()%17==0 || rand()%11==0 || rand()%dexterity==0){
             	hp -= e_dmg-armour_eq;
-                printf("the enemy attacked you dealing %2.1f damage!(remaining player hp:%2.1f)\n",e_dmg-armour_eq,hp);
+                printf("the shopkeeper attacked you dealing %2.1f damage!(remaining player hp:%2.1f)\n",e_dmg-armour_eq,hp);
 			}
 			else
-				printf("the enemy missed! lucky!\n");
+				printf("the shopkeeper missed! lucky!\n");
             }
-            else if(strstr(dungeon_con,"heal")){
+            else if(strstr(shop_fight_con,"heal")){
 
  			if( (rand()%3==0 || rand()%16==0 || rand()%10==0 || rand()%dexterity==0) && rand()%luck==0){
             	hp -= e_dmg-armour_eq;
-                printf("the enemy attacked you dealing %2.1f damage!(remaining player hp:%2.1f)\n",e_dmg-armour_eq,hp);
+                printf("the shopkeeper attacked you dealing %2.1f damage!(remaining player hp:%2.1f)\n",e_dmg-armour_eq,hp);
 			}
 			else
-				printf("the enemy missed! lucky!\n");
+				printf("the shopkeeper missed! lucky!\n");
             }
 
 
@@ -201,35 +199,38 @@
            	    printf("the heavy armour hinders your mobility!\n");
 			if( rand()%3==0 || rand()%16==0 || rand()%dexterity==0){
            	hp -= e_dmg-armour_eq;
-            printf("the enemy attacked you!(remaining player hp:%2.1f)\n",hp);
+            printf("the shopkeeper attacked you!(remaining player hp:%2.1f)\n",hp);
 			}
 			else
-				printf("the enemy missed! lucky!\n");
+				printf("the shopkeeper missed! lucky!\n");
 			if(wp_con==4 && armour_con==2){
 					if( rand()%3==0 || rand()%16==0 || rand()%10==0 || rand()%17==0 || rand()%11==0 || rand()%dexterity==0){
            			hp -= e_dmg-armour_eq;
-            		printf("the enemy attacked you! causing %2.1f (remaining player hp:%2.1f)\n",e_dmg,hp);
+            		printf("the shopkeeper attacked you! causing %2.1f (remaining player hp:%2.1f)\n",e_dmg,hp);
 					}
 					else
-					printf("the enemy missed! lucky!\n");
+					printf("the shopkeeper missed! lucky!\n");
 			}
+		}
+		if(e_hp<30 && rand()%3==0){
+            e_hp += 12*i;
+            printf("the shopkeeper healed himself of %2.1f\n",12*i);
+            printf("current shopkeeper hp:%2.1f",e_hp);
 		}
 
 		if(e_hp > 0.)
-			printf("the enemy is still alive!\n");
+			printf("the shopkeeper is still alive!\n");
 
 	}while(e_hp >0. && hp>0.);
 	break;
     }
 
-		/*check if enemy is dead*/
+		/*check if shopkeeper is dead*/
 
 		if(e_hp<=0){
-                e_count++;
-            	gold += 20+e_count*i;
-				printf("you killed an enemy!GJ\n");
-            	printf("you gained %2.1f xp and %2.1f of gold(current xp=%2.1f)\n",3*i,20+e_count*i,xp += 3*p_xp_multi);
-            	printf("your current gold %2.1f\n",gold);
+				printf("you severly injured the shopkeeper!GJ\n");
+            	printf("you gained %2.1f xp (current xp=%2.1f)\n",3*i,xp += 3*p_xp_multi);
+                printf("\"you bested me, take what you want and go away\"\n");
 
 		    	/*check if lv up */
 

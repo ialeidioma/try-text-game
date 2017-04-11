@@ -15,6 +15,7 @@
 			Sleep(1000);
 			system("color 0f");
 			printf("night came...another day has passed\n");
+			printf(" hunger meter: %d\n water meter: %d\n",food_con,water_con);
 			Sleep(1000);
 		}
 	}
@@ -33,6 +34,7 @@
 			Sleep(1000);
 			system("color f1");
 			printf("a new day...a new beginning\n");
+            printf(" hunger meter: %d\n water meter: %d\n",food_con,water_con);
 			Sleep(1000);
 		}
 	}
