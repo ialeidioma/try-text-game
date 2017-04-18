@@ -2,7 +2,7 @@
 		printf("welcome welcome\n");
 		for(;;){
 		printf("what would you like to buy ?\n");
-		printf(" armours\n weapon\n items\n exit shop\n");
+		printf(" armours\n weapons\n items\n exit shop\n");
 		fgets(shop_con,sizeof(shop_con),stdin);
 
 
@@ -27,37 +27,38 @@
 				else if(strstr(shop_con,"merc suit"))
 					printf("the merc suit offers moderate protection, in addition it boosts the wearer offense abilities, it costs 1500 gold pieces\n");
 				else{
-					printf("since you want to do smartass...you go back to the shop!\n");
+					printf("since you want to do smartass...\n");
+					break;
 				}
 
 				printf("do you wish to buy this armour ?\n");
-				printf("current gold:%2.1f",gold);
+				printf("current gold:%2.1f\n",gold);
 				printf("enter yes to buy else for no\n");
 				fgets(buy_con,sizeof(buy_con),stdin);
 
   				if(strstr(buy_con,"yes") && strstr(shop_con,"leather jacket") && gold >= 900){
   					gold -=900;
 					armour_eq=3.;
-					armour_con=1;
+					strcpy(armour_con,"leather jacket\n");
  					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
 				else if(strstr(buy_con,"yes") && strstr(shop_con,"mail jacket") && gold >= 1200){
 					gold -= 1200;
 					armour_eq=5.;
-					armour_con=2;
+					strcpy(armour_con,"mail jacket\n");
   					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
 				else if(strstr(buy_con,"yes") && strstr(shop_con,"trench coat") && gold >= 1350){
 					gold -= 1350;
 					armour_eq=1.;
-					armour_con=3;
+					strcpy(armour_con,"trench coat\n");
 					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
 				else if(strstr(buy_con,"yes") && strstr(shop_con,"merc suit") && gold >= 1500){
 					gold -= 1500;
 					armour_eq=3.;
 					armour_atck_up=2.;
-					armour_con=4;
+					strcpy(armour_con,"merc suit\n");
 					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
 
@@ -85,37 +86,38 @@
 				else if(strstr(shop_con,"greatsword"))
 					printf("the greatsword offers high attack, it has a lower attack speed compared to other weapons, it costs 1500 gold pieces\n");
 				else{
-					printf("since you want to do smartass...you go back to the shop!\n");
+					printf("since you want to do smartass...\n");
+					break;
 				}
 
 				printf("do you wish to buy this weapon ?\n");
-				printf("current gold:%2.1f",gold);
+				printf("current gold:%2.1f\n",gold);
 				printf("enter yes to buy else for no\n");
 				fgets(buy_con,sizeof(buy_con),stdin);
 
   				if(strstr(buy_con,"yes") && strstr(shop_con,"shortsword") && gold >= 950){
   					gold -=950;
 					wp_eq=3.;
-					wp_con=1;
+					strcpy(wp_con,"shortsword\n");
  					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 
 				}
 				else if(strstr(buy_con,"yes") && strstr(shop_con,"assassin blade") && gold >= 1150){
 					gold -= 1150;
 					wp_eq=2.;
-					wp_con=2;
+					strcpy(wp_con,"assassin blade\n");
   					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
 				else if(strstr(buy_con,"yes") && strstr(shop_con,"gladius") && gold >= 1450){
 					gold -= 1450;
 					wp_eq=2.5;
-					wp_con=3;
+					strcpy(wp_con,"gladius\n");
 					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
 				else if(strstr(buy_con,"yes") && strstr(shop_con,"greatsword") && gold >= 1500){
 					gold -= 1500;
 					wp_eq=5.;
-					wp_con=4;
+					strcpy(wp_con,"greatsword\n");
 					printf("thank you for your purchase, I'm sure it will help you in your travels(current gold: %2.1f)\n",gold);
 				}
 
@@ -143,11 +145,12 @@
                     printf("it will allow you to craft things...for now it has no real use since there isn't a crafting system\n");
 				}
 				else{
-					printf("since you want to do smartass...you go back to the shop!\n");
+					printf("since you want to do smartass...\n");
+					break;
 				}
 
 				printf("do you wish to buy this item ?\n");
-				printf("current gold:%2.1f",gold);
+				printf("current gold:%2.1f\n",gold);
 				printf("enter yes to buy else for no\n");
 				fgets(buy_con,sizeof(buy_con),stdin);
 
@@ -189,21 +192,21 @@
                 printf(" steal weapon\n steal armour\n steal item\n steal gold\n");
                 fgets(shop_con,sizeof(shop_con),stdin);
                 #include "shop_fight.h"
-                if(strstr(shop_con,"steal weapon")){
+                if(strstr(shop_con,"steal weapon") && strstr(shopkeeper,"injured")){
                         printf("you steal the gladius");
                         wp_eq=2.5;
-                        wp_con=3;
+                        strcpy(wp_con,"gladius\n");
                 }
-                else if(strstr(shop_con,"steal armour")){
+                else if(strstr(shop_con,"steal armour") && strstr(shopkeeper,"injured")){
                         printf("you steal the leather jacket");
                         armour_eq=3.;
-                        armour_con=1;
+                        strcpy(armour_con,"leather jacket\n");
                 }
-                else if(strstr(shop_con,"steal item")){
+                else if(strstr(shop_con,"steal item") && strstr(shopkeeper,"injured")){
                         printf("you steal the ciel's banhammer");
                         ban_con += 4;
                 }
-                else if(strstr(shop_con,"steal gold")){
+                else if(strstr(shop_con,"steal gold") && strstr(shopkeeper,"injured")){
                         if(rand()%3==0){
                             shop_gold =3000;
                             gold += shop_gold;
@@ -222,6 +225,8 @@
                         }
                         printf("you steal %d gold (current gold:%2.1f)\n",shop_gold,gold);
                 }
+                else if(hp<=0.)
+                    break;
                 else{
                     printf("your damn fault for not putting one of those cases lol\n");
                 }

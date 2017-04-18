@@ -1,11 +1,11 @@
 	/*variables*/
 
-    int e_count,armour_con,wp_con,s_p_con,l_p_con,roger_con,ban_con,alcohol_con,player_age,a,day_con,quest_con,reward,board_con,rm,bet;
-	int day_lenght,quest_conditions,hp_brawl,dmg_brawl,e_dmg_brawl,e_hp_brawl,max_hp_brawl,heal_brawl,strenght,luck,charisma,intelligence,dexterity,stats_count,scale_str,scale_int;
-	int gold_found,food_con,water_con,stamina_con,craft_table,shop_gold;
+    int e_count,s_p_con,l_p_con,roger_con,ban_con,alcohol_con,player_age,a,day_con,quest_con,reward,board_con,rm,bet;
+	int day_lenght,quest_conditions,hp_brawl,dmg_brawl,e_dmg_brawl,e_hp_brawl,max_hp_brawl,heal_brawl,strength,luck,charisma,intelligence,dexterity,stats_count,scale_str,scale_int;
+	int gold_found,food_con,water_con,stamina_con,craft_table,shop_gold,day_count,year,on_going_quest,flee_success;
 	double hp,e_hp,xp,lv,dmg,e_dmg,heal,xpo,xp_multi,max_hp,gold,armour_eq,armour_atck_up,wp_eq,i,p_xp_multi;
     char buffer[SIZE], player_name[SIZE],menu_con[SIZE],brawl_con[SIZE],stats_con[SIZE],player_class[SIZE],main_con[SIZE],temple_con[SIZE],shop_con[SIZE],buy_con[SIZE];
-    char dungeon_con[SIZE],arena_con[SIZE],bar_con[SIZE],home_con[SIZE],shop_fight_con[SIZE];
+    char dungeon_con[SIZE],arena_con[SIZE],bar_con[SIZE],home_con[SIZE],shop_fight_con[SIZE],armour_con[SIZE],wp_con[SIZE],perma_death[SIZE],shopkeeper[SIZE];
     char *file="try.bin";
     char encFile[200];
     char newencFile[200];
@@ -27,8 +27,6 @@
     armour_eq=0.;
     armour_atck_up=0.;
     wp_eq=0.;
-    armour_con=0;
-    wp_con=0;
     s_p_con=0;
     l_p_con=0;
     roger_con=0;
@@ -41,7 +39,7 @@
     quest_con=0;
     dmg_brawl=4;
     e_dmg_brawl=4;
-    strenght=1;
+    strength=1;
     luck=1;
     charisma=1;
     intelligence=1;
@@ -52,3 +50,10 @@
     water_con=10;
     stamina_con=100;
     craft_table=0;
+    day_count=0;
+    year=260;
+    on_going_quest=0;
+    e_count=0;
+    strcpy(wp_con,"rusty dagger\n");
+    strcpy(armour_con,"rags\n");
+    strcpy(shopkeeper,"alive");

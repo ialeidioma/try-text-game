@@ -2,7 +2,7 @@
 		/*combat system*/
 
 		while(hp > 0){
-        scale_str=0.25*strenght;
+        scale_str=0.25*strength;
         scale_int=0.25*intelligence;
 		e_hp=100*i;
 		dmg= 4.+armour_atck_up+wp_eq+scale_str;
@@ -23,33 +23,33 @@
 
 				/*check wp equipped*/
 
-				switch(wp_con){
-
-					case 2:
-					e_hp -=dmg;
+					if(strstr(wp_con,"assassin blade")){
 					if(rand()%8==0){
-						e_hp -=dmg;
+						e_hp -=2*dmg;
 						printf("critical hit!\n");
 						printf("you attacked the shopkeeper, causing %2.1f dmg (remaing shopkeeper hp=%2.1f)\n",2*dmg,e_hp);
-						break;
 					}
+					else{
+                    e_hp -=dmg;
 					printf("you attacked the shopkeeper, causing %2.1f dmg (remaing shopkeeper hp=%2.1f)\n",dmg,e_hp);
-					break;
+					}
+					}
 
-					case 3:
-                	e_hp -=dmg;
+					else if(strstr(wp_con,"gladius")){
 					if(rand()%16==0){
 						e_hp =0.;
 						printf("shopkeeper executed!!\n");
-						break;
 					}
+					else{
+					e_hp-=dmg;
 					printf("you attacked the shopkeeper, causing %2.1f dmg (remaing shopkeeper hp=%2.1f)\n",dmg,e_hp);
-					break;
+					}
+					}
 
-					default:
+					else{
 						e_hp -=dmg;
             			printf("you attacked the shopkeeper, causing %2.1f dmg (remaing shopkeeper hp=%2.1f)\n",dmg,e_hp);
-				}
+					}
             }
 
 			/*flee option*/
@@ -148,7 +148,7 @@
 					printf("you healed yourself of %2.1f hp, keep up the fight,(hp=%2.1f)\n",heal,hp);
             	else{
  					hp -= heal;
-            		printf("sorry can't heal right now!(hp=%2.1f max_hp=%2.1f)\n",hp,max_hp);
+            		printf("sorry can't heal right now!(hp=%2.1f max-hp=%2.1f)\n",hp,max_hp);
 				}
             }
             else{
@@ -179,7 +179,7 @@
 
 		/*check armour equipped*/
 
-		if(armour_con==3){
+		if(strstr(armour_con,"trench coat")){
 			hp += heal*0.314 ;
            	if(hp<=max_hp)
 			printf("you recovered %2.1f (current hp:%2.1f)\n",heal*0.314,hp);
@@ -192,10 +192,10 @@
 
 		/*check agility*/
 
-		if(wp_con==4 || armour_con==2){
-			if(wp_con==4)
+		if(strstr(wp_con,"greatsword") || strstr(armour_con,"mail jacket")){
+			if(strstr(wp_con,"greatsword"))
            		printf("the heavy weapon hinders your mobility!\n");
-           	if(armour_con==2)
+           	if(strstr(armour_con,"mail jacket"))
            	    printf("the heavy armour hinders your mobility!\n");
 			if( rand()%3==0 || rand()%16==0 || rand()%dexterity==0){
            	hp -= e_dmg-armour_eq;
@@ -203,13 +203,10 @@
 			}
 			else
 				printf("the shopkeeper missed! lucky!\n");
-			if(wp_con==4 && armour_con==2){
+			if(strstr(wp_con,"greatsword") && strstr(armour_con,"mail jacket")){
 					if( rand()%3==0 || rand()%16==0 || rand()%10==0 || rand()%17==0 || rand()%11==0 || rand()%dexterity==0){
            			hp -= e_dmg-armour_eq;
-            		printf("the shopkeeper attacked you! causing %2.1f (remaining player hp:%2.1f)\n",e_dmg,hp);
 					}
-					else
-					printf("the shopkeeper missed! lucky!\n");
 			}
 		}
 		if(e_hp<30 && rand()%3==0){
@@ -227,8 +224,9 @@
 
 		/*check if shopkeeper is dead*/
 
-		if(e_hp<=0){
-				printf("you severly injured the shopkeeper!GJ\n");
+		if(e_hp<=0.){
+                strcpy(shopkeeper,"injured");
+				printf("you severely injured the shopkeeper!GJ\n");
             	printf("you gained %2.1f xp (current xp=%2.1f)\n",3*i,xp += 3*p_xp_multi);
                 printf("\"you bested me, take what you want and go away\"\n");
 
@@ -263,7 +261,7 @@
 
 			/*check if player is still alive*/
 
-	if(hp<=0){
+	if(hp<=0.){
         printf("too bad you died! thanks for playing!\n");
         printf("and sorry for deleting your save (lenny face(can't print it lol))\n");
         Sleep(3000);

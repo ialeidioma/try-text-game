@@ -12,6 +12,7 @@
 			day_con=0;
 			food_con -=1;
 			water_con -=1;
+			day_count+=1;
 			Sleep(1000);
 			system("color 0f");
 			printf("night came...another day has passed\n");
@@ -31,6 +32,7 @@
 			day_con=1;
 			food_con -=1;
 			water_con -=1;
+			day_count+=1;
 			Sleep(1000);
 			system("color f1");
 			printf("a new day...a new beginning\n");

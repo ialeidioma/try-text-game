@@ -1,7 +1,7 @@
 printf("you head towards your home\n");
 for(;;){
 printf("what would you want to do now ?\n");
-printf(" turn on the light\n rest\n craft\n furnish\n (lenny)\n leave the house\n");
+printf(" turn on the light\n rest\n craft\n furnish\n lenny\n leave the house\n");
 fgets(home_con,sizeof(home_con),stdin);
 if(strstr(home_con,"rest")){
     printf("you stumble into the bed...so tire...\n");
@@ -14,6 +14,7 @@ if(strstr(home_con,"rest")){
 			day_con=0;
 			food_con -=1;
 			water_con -=1;
+			day_count+=1;
 			Sleep(1000);
 			system("color 0f");
 			printf("night came...another day has passed\n");
@@ -24,6 +25,7 @@ if(strstr(home_con,"rest")){
 			day_con=1;
 			food_con -=1;
 			water_con -=1;
+			day_count+=1;
 			Sleep(1000);
 			system("color f1");
 			printf("a new day...a new beginning\n");
@@ -65,6 +67,7 @@ else if(strstr(home_con,"lenny")){
 }
 else if(strstr(home_con,"leave the house")){
     printf("you exit the house, lots of things to do\n");
+    break;
 }
 else
     printf("you didn't enter one of the cases\n");

@@ -1,12 +1,12 @@
 /*stats*/
 	do{
 	printf("you have %d points to allocate to your different stats\n",stats_count);
-	printf("your current stats are:\n strenght:%d\n luck:%d\n charisma:%d\n intelligence:%d\n dexterity:%d\n",strenght,luck,charisma,intelligence,dexterity);
-	printf("type \"allocate strenght 2\" or \"allocate dexterity 3\" i hope you get it lol\n");
+	printf("your current stats are:\n strength:%d\n luck:%d\n charisma:%d\n intelligence:%d\n dexterity:%d\n",strength,luck,charisma,intelligence,dexterity);
+	printf("type \"allocate strength 2\" or \"allocate dexterity 3\" i hope you get it lol\n");
 	fgets(stats_con,sizeof (stats_con),stdin);
 
-	if(strenght<5 && strstr(stats_con,"allocate strenght ")){
-		#include "strenght_setup.h"
+	if(strength<5 && strstr(stats_con,"allocate strength ")){
+		#include "strength_setup.h"
 		}
 	else if(dexterity<5 && strstr(stats_con,"allocate dexterity ")){
 		#include "dexterity_setup.h"
@@ -31,5 +31,5 @@
 
 	printf("you've allocated all current available points\n");
 	Sleep(2000);
-	printf("strenght, dexterity,luck,intelligence do something, others not yet\n");
+	printf("strength, dexterity,luck,intelligence do something, others not yet\n");
 	Sleep(2000);

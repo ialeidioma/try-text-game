@@ -3,16 +3,15 @@
 
 		while(hp > 0){
         e_count=0;
-        scale_str=0.25*strenght;
+        scale_str=0.25*strength;
         scale_int=0.25*intelligence;
-		e_hp=80*i;
+		e_hp=60*i;
 		dmg= 4.+armour_atck_up+wp_eq+scale_str;
     	heal= 6.+scale_int;
     	heal_brawl = (int) heal;
 		e_dmg= 7.*i;
         printf("you encountered an enemy!\n");
         printf("prepare to fight!\n");
-        for(;;){
         do {
         	Sleep(1000);
         	printf("decide to attack or flee or use your item or heal\n");
@@ -25,40 +24,41 @@
 
 				/*check wp equipped*/
 
-				switch(wp_con){
-
-					case 2:
-					e_hp -=dmg;
+				if(strstr(wp_con,"assassin blade")){
 					if(rand()%8==0){
-						e_hp -=dmg;
+						e_hp -=2*dmg;
 						printf("critical hit!\n");
 						printf("you attacked the enemy, causing %2.1f dmg (remaing enemy hp=%2.1f)\n",2*dmg,e_hp);
-						break;
 					}
+					else{
+                    e_hp -=dmg;
 					printf("you attacked the enemy, causing %2.1f dmg (remaing enemy hp=%2.1f)\n",dmg,e_hp);
-					break;
+					}
+					}
 
-					case 3:
-                	e_hp -=dmg;
+					else if(strstr(wp_con,"gladius")){
 					if(rand()%16==0){
 						e_hp =0.;
 						printf("enemy executed!!\n");
-						break;
 					}
+					else{
+					e_hp-=dmg;
 					printf("you attacked the enemy, causing %2.1f dmg (remaing enemy hp=%2.1f)\n",dmg,e_hp);
-					break;
+					}
+					}
 
-					default:
+					else{
 						e_hp -=dmg;
             			printf("you attacked the enemy, causing %2.1f dmg (remaing enemy hp=%2.1f)\n",dmg,e_hp);
-				}
-            }
+					}
+			}
 
 			/*flee option*/
 
 			else if(strstr(dungeon_con,"flee")){
+                if(rand()%4==0 || rand()%6==0 || rand()%dexterity==0){
                 printf("coward! You can't run forever\n");
-
+                flee_success=0;
                 /*enemy attack while attempting to flee*/
 
                 if(rand()%3==0 || rand()%2==0){
@@ -68,6 +68,13 @@
 				else
 					printf("the enemy followed you!\n");
             }
+                else {
+                    flee_success=1;
+                    printf("you managed to flee!\n");
+                    break;
+                }
+			}
+
 
             /*items option*/
 
@@ -150,7 +157,7 @@
 					printf("you healed yourself of %2.1f hp, keep up the fight,(hp=%2.1f)\n",heal,hp);
             	else{
  					hp -= heal;
-            		printf("sorry can't heal right now!(hp=%2.1f max_hp=%2.1f)\n",hp,max_hp);
+            		printf("sorry can't heal right now!(hp=%2.1f max-hp=%2.1f)\n",hp,max_hp);
 				}
             }
             else{
@@ -181,7 +188,7 @@
 
 		/*check armour equipped*/
 
-		if(armour_con==3){
+		if(strstr(armour_con,"trench coat")){
 			hp += heal*0.314 ;
            	if(hp<=max_hp)
 			printf("you recovered %2.1f (current hp:%2.1f)\n",heal*0.314,hp);
@@ -194,10 +201,10 @@
 
 		/*check agility*/
 
-		if(wp_con==4 || armour_con==2){
-			if(wp_con==4)
+		if(strstr(wp_con,"greatsword") || strstr(armour_con,"mail jacket")){
+			if(strstr(wp_con,"greatsword"))
            		printf("the heavy weapon hinders your mobility!\n");
-           	if(armour_con==2)
+           	if(strstr(armour_con,"mail jacket"))
            	    printf("the heavy armour hinders your mobility!\n");
 			if( rand()%3==0 || rand()%16==0 || rand()%dexterity==0){
            	hp -= e_dmg-armour_eq;
@@ -205,13 +212,10 @@
 			}
 			else
 				printf("the enemy missed! lucky!\n");
-			if(wp_con==4 && armour_con==2){
+			if(strstr(wp_con,"greatsword") && strstr(armour_con,"mail jacket")){
 					if( rand()%3==0 || rand()%16==0 || rand()%10==0 || rand()%17==0 || rand()%11==0 || rand()%dexterity==0){
            			hp -= e_dmg-armour_eq;
-            		printf("the enemy attacked you! causing %2.1f (remaining player hp:%2.1f)\n",e_dmg,hp);
 					}
-					else
-					printf("the enemy missed! lucky!\n");
 			}
 		}
 
@@ -219,12 +223,12 @@
 			printf("the enemy is still alive!\n");
 
 	}while(e_hp >0. && hp>0.);
-	break;
-    }
+	if(flee_success==1)
+        break;
 
 		/*check if enemy is dead*/
 
-		if(e_hp<=0){
+		if(e_hp<=0.){
                 e_count++;
             	gold += 20+e_count*i;
 				printf("you killed an enemy!GJ\n");
@@ -262,7 +266,7 @@
 
 			/*check if player is still alive*/
 
-	if(hp<=0){
+	if(hp<=0.){
         printf("too bad you died! thanks for playing!\n");
         printf("and sorry for deleting your save (lenny face(can't print it lol))\n");
         Sleep(3000);

@@ -113,9 +113,12 @@ int main(void)
 	else if(strstr(main_con,"status")){
         printf("your name is %syour age is %d\n",player_name,player_age);
         printf("your class is %s",player_class);
-        printf("your current stats are:\n strenght:%d\n luck:%d\n charisma:%d\n intelligence:%d\n dexterity:%d\n",strenght,luck,charisma,intelligence,dexterity);
+        printf("your current stats are:\n strength:%d\n luck:%d\n charisma:%d\n intelligence:%d\n dexterity:%d\n",strength,luck,charisma,intelligence,dexterity);
         printf(" xp:%2.1f\n lv:%2.1f\n hp:%2.1f\n gold:%2.1f\n",xp,lv,hp,gold);
         printf(" hunger meter: %d\n water meter: %d\n",food_con,water_con);
+        printf("weapon equipped: %s",wp_con);
+        printf("armour equipped: %s",armour_con);
+        Sleep(1500);
 	}
 
 	else if(strstr(main_con,"go home")){
@@ -135,16 +138,25 @@ int main(void)
 	else
         printf("don't be a pain in the ass! enter one of those cases!\n");
 
+    if(hp<=0.){
+        if(strstr(perma_death,"yes") || strstr(perma_death,"Yes"))
+        rm=remove("try1.bin");
+        break;
+        }
 
     clock_t end = clock();
 	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 
 	/*day control*/
 
-    if(main_con[0]!='s' || home_con[0]!='r'){
 	#include "day_control.h"
-    }
+
+	if(day_count==year){
+        player_age+=1;
+        day_count=0;
+        printf("a year has passed, your age is now %d\n",player_age);
 	}
+
 	if(water_con<=0 || food_con<=0){
         if(food_con<=0){
             hp -=10;
@@ -152,9 +164,19 @@ int main(void)
         }
         if(water_con<=0){
             hp -=10;
-            printf("you are thirsty, you lose %d hp (current hp:2.1f)\n",10,hp);
+            printf("you are thirsty, you lose %d hp (current hp:%2.1f)\n",10,hp);
+        }
+        if(hp<=0.){
+            printf("too bad you died! thanks for playing!\n");
+            printf("and sorry for deleting your save (lenny face(can't print it lol))\n");
+            if(strstr(perma_death,"yes") || strstr(perma_death,"Yes"))
+            rm=remove("try1.bin");
+            Sleep(3000);
+            break;
         }
 	}
+
+    }
 	break;
 
 	case 'l':

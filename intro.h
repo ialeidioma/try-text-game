@@ -41,6 +41,17 @@ Sleep(1000);
 printf("seems like you are still there...\n");
 Sleep(1500);
 printf("while i try to fix that...enjoy the game!\n");
+printf("another thing before starting...\n");
+Sleep(1500);
+printf("you want to enable perma-death ?\n");
+printf("aka you die, i delete the save file (lenny)\n");
+fgets(perma_death,sizeof(perma_death),stdin);
+if(strstr(perma_death,"yes") || strstr(perma_death,"Yes"))
+    printf("ok don't come crying to me when you die\nlol\n");
+else{
+    strcpy(perma_death,"no");
+    printf("perma-death disabled...\ncoward lol\n");
+}
 Sleep(2000);
 printf("how shall you be called ?\n");
 

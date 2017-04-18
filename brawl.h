@@ -52,9 +52,12 @@
 					printf("you healed yourself of %d hp, keep up the fight,(hp=%d)\n",heal_brawl,hp_brawl);
             	else{
  					hp_brawl -= heal;
-            		printf("sorry can't heal right now!(hp=%d max_hp=%d)\n",hp_brawl,max_hp_brawl);
+            		printf("sorry can't heal right now!(hp=%d max-hp=%d)\n",hp_brawl,max_hp_brawl);
 				}
 			}
+            else{
+                printf("you didn't enter one of the cases\n");
+            }
 			if(brawl_con[0] != 'f'){
 
 			if( rand()%3==0 || rand()%7==0 || rand()%11==0){

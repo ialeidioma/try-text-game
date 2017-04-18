@@ -5,9 +5,6 @@
             for(;;){
                 printf("decide where to go:\n");
                 if(rand()%3==0){
-                        printf(" search\n");
-                    }
-                if(rand()%3==0){
                         printf(" right\n");
                     }
                 if(rand()%3==0){
@@ -145,5 +142,7 @@
                     break;
                 }
                 printf("there's only dust here\n");
+                if(hp<=0.)
+                    break;
             }
 
