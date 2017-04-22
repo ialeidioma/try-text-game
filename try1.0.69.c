@@ -5,10 +5,11 @@ unknown update issues (new implemented code needs to be checked)
 New features to add:
 story, character development, classes
 bar zone (some eroge, gambling,more than 1 enemy in brawl)
-possibility to steal items from shop (become outlaw ?)
+become outlaw ?
 add survival stats ( stamina...)(running low on one removes your health etc)
 dungeon zone (complete quests)
 temple zone (learn skills, chance to get high difficulty quests)
+"random" biomes ?
 guild zone (quests, reputation, possibility to recruit party member(with enough reputation, higher rep higher stats))
 add more zones, items, npcs for party, quests, monsters etc
 (add a plot, need someone to make a story but player not forced to play the story)
