@@ -74,7 +74,22 @@ int main(void)
     clock_t begin = clock();
     Sleep(500);
 	printf("decide where to go\n");
+	if(travel_check!=1)
 	printf(" shop\n arena\n dungeon\n bar\n temple\n status\n go home\n exit game\n");
+	else{
+        if(rand()%3==0)
+            printf(" shop\n");
+        else if(rand()%3==0)
+            printf(" arena\n");
+        else if(rand()%3==0)
+            printf(" dungeon\n");
+        else if(rand()%5==0)
+            printf(" bar\n");
+        else if(rand()%7==0)
+            printf(" temple\n");
+        printf(" status\n");
+        printf(" exit game\n");
+	}
 	printf("enter the name of the thing\n");
 	fgets(main_con,sizeof (main_con),stdin);
 
@@ -120,6 +135,14 @@ int main(void)
         printf("weapon equipped: %s",wp_con);
         printf("armour equipped: %s",armour_con);
         Sleep(1500);
+	}
+
+	else if(strstr(main_con,"travel")){
+        printf("you decide to test your luck and abilities to reach a different place\n");
+        Sleep(1500);
+        printf("you head into the open sand\n");
+        Sleep(1500);
+        #include "travel.h"
 	}
 
 	else if(strstr(main_con,"go home")){
